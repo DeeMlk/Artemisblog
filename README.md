@@ -4,9 +4,9 @@ Estrutura de blog da **Artemis** empacotada como **plugin** WordPress, para roda
 
 As telas do blog (home de posts, post, arquivos, busca) são renderizadas em **modo canvas**: o plugin monta o documento HTML inteiro com **cabeçalho e rodapé próprios**, ignorando o tema/page builder do anfitrião — assim o layout do blog não é quebrado pelo builder do site. Todo o visual é escopado sob `.artemis-blog` para não vazar para o resto do site, e o menu do cabeçalho reaproveita automaticamente o menu do tema.
 
-É uma **versão genérica**: nenhuma identidade de cliente vem embutida — você instala e estiliza tudo na mão pelo painel.
+É uma **versão genérica**: nenhuma identidade de cliente vem embutida — você instala e estiliza pelo painel, na mão ou com o botão **Importar estilo do site**, que lê a identidade visual do site anfitrião e preenche as cores e fontes do blog automaticamente.
 
-- **Versão:** 1.3.0
+- **Versão:** 1.4.0
 - **Requer WordPress:** 6.0+
 - **Requer PHP:** 7.4+
 
@@ -19,6 +19,7 @@ As telas do blog (home de posts, post, arquivos, busca) são renderizadas em **m
   - **Arquivos** (categoria, tag, autor, data) e **busca**.
   - Todo o resto do site (home institucional, páginas do builder, CPTs do tema) segue intocado.
 - **Identidade visual:** tudo editável no painel **Artemis Blog** (menu do admin) — cores de cabeçalho, miolo e rodapé, fontes, logos (header e rodapé), CTA global, WhatsApp e textos do rodapé. Salvo em opção global — não some se você trocar de tema.
+- **Importar estilo do site:** o botão **🎨 Importar estilo do site** (no topo do painel) lê a identidade visual do próprio site anfitrião — paleta global do Elementor (kit ativo), estilos globais do tema (theme.json) e, por último, o CSS público da página inicial — e preenche as cores e fontes do blog de uma vez. Só toca em cores/fontes (não mexe em textos de CTA, logos nem na página do blog); tudo continua ajustável depois.
 - **CTAs com métricas:** o **Artemis Convert** vem embutido (views/cliques/CTR).
 
 ## Instalação
@@ -27,7 +28,7 @@ As telas do blog (home de posts, post, arquivos, busca) são renderizadas em **m
 2. Ative **Artemis Blog** em **Plugins**.
 3. Crie uma página vazia (ex.: "Blog") e selecione-a em **Artemis Blog → Página do blog**
    (equivale a definir a *Página de posts* em **Configurações → Leitura**).
-4. Estilize tudo na mão em **Artemis Blog**: cores (cabeçalho, miolo, rodapé), fontes, **logos**, **CTA global**, **WhatsApp** e rodapé.
+4. Estilize em **Artemis Blog**: clique em **🎨 Importar estilo do site** para herdar as cores e fontes do site automaticamente, e/ou ajuste na mão cores (cabeçalho, miolo, rodapé), fontes, **logos**, **CTA global**, **WhatsApp** e rodapé.
 5. (Opcional) Importe posts de teste em **Artemis Blog → Conteúdo de exemplo**.
 
 > **Página inicial:** para a página do blog funcionar como esperado, o site deve usar uma
@@ -54,6 +55,7 @@ inc/
   assets.php              enqueue (só nas telas do blog) + CSS dinâmico escopado
   router.php              template_include + helpers de parciais/sidebar/busca
   admin-settings.php      painel "Artemis Blog" (Settings API)
+  style-importer.php      botão "Importar estilo do site" (herda cores/fontes do site anfitrião)
   convert-loader.php      Artemis Convert embutido
   demo-seeder.php         importação manual de conteúdo de exemplo
 templates/                blog-home, single, archive, author, search + parts/

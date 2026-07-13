@@ -300,11 +300,23 @@ function artemis_settings_page_render() {
 			<div class="notice notice-success is-dismissible"><p><?php esc_html_e( 'Pronto! Tema dark, textos de CTA e WhatsApp preenchidos. Ajuste o que quiser abaixo e clique em Salvar.', 'artemis-blog' ); ?></p></div>
 		<?php endif; ?>
 
+		<?php
+		if ( function_exists( 'artemis_style_import_notice' ) ) {
+			artemis_style_import_notice();
+		}
+		?>
+
 		<form method="post" style="margin:16px 0;padding:14px 18px;border:1px solid #c3c4c7;border-left:4px solid #2271b1;background:#fff;">
 			<?php wp_nonce_field( 'artemis_apply_preset' ); ?>
 			<p style="margin:0 0 10px;"><strong><?php esc_html_e( 'Preencher tudo automaticamente', 'artemis-blog' ); ?></strong> — <?php esc_html_e( 'aplica de uma vez um tema dark pronto + textos de CTA + link do WhatsApp. Você ajusta depois. Não mexe em logos/imagens nem na página do blog.', 'artemis-blog' ); ?></p>
 			<button type="submit" name="artemis_apply_preset" value="1" class="button button-primary">⚡ <?php esc_html_e( 'Preencher tudo (tema dark)', 'artemis-blog' ); ?></button>
 		</form>
+
+		<?php
+		if ( function_exists( 'artemis_style_import_form' ) ) {
+			artemis_style_import_form();
+		}
+		?>
 
 		<form method="post" action="options.php">
 			<?php settings_fields( 'artemis_settings_group' ); ?>
