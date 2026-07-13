@@ -1,0 +1,52 @@
+/* Artemis Convert - Frontend CTAs */
+.artemis-convert-cta-wrap {
+	margin: 1.5em 0;
+	text-align: center;
+}
+.artemis-convert-cta-wrap.artemis-convert-cta-top {
+	margin-bottom: 1.5em;
+}
+.artemis-convert-cta-wrap.artemis-convert-cta-middle {
+	margin: 1.5em 0;
+}
+.artemis-convert-cta-wrap.artemis-convert-cta-bottom {
+	margin-top: 1.5em;
+}
+.artemis-convert-cta-link {
+	display: inline-block;
+	line-height: 0;
+}
+.artemis-convert-cta-img {
+	max-width: 100%;
+	height: auto;
+	vertical-align: middle;
+}
+.artemis-convert-cta-shortcode-content {
+	max-width: 100%;
+}
+@media (min-width: 768px) {
+	.artemis-convert-cta-wrap:has(> .artemis-convert-hide-desktop):not(:has(> :not(.artemis-convert-hide-desktop))),
+	.artemis-convert-hide-desktop {
+		display: none !important;
+	}
+}
+
+/* Imagem desktop: visível em telas maiores; oculta em mobile */
+.artemis-convert-cta-img-desktop {
+	display: block;
+}
+.artemis-convert-cta-img-mobile {
+	display: none;
+}
+@media (max-width: 767px) {
+	.artemis-convert-cta-wrap:has(> .artemis-convert-hide-mobile):not(:has(> :not(.artemis-convert-hide-mobile))),
+	.artemis-convert-hide-mobile {
+		display: none !important;
+	}
+	.artemis-convert-cta-img-desktop {
+		display: none;
+	}
+	.artemis-convert-cta-img-mobile {
+		display: block;
+	}
+}

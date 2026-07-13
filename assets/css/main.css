@@ -1,0 +1,1300 @@
+/*!
+ * Artemis Blog (plugin) — estilos do miolo do blog.
+ * Todas as regras são escopadas sob .artemis-blog para não vazar para o tema
+ * anfitrião. Gerado do main.css do tema Artemis via scope-css.js — não edite à mão.
+ */
+/* =============================================================
+   Artemis Blog — main stylesheet
+   ----------------------------------------------------------------
+   As variáveis CSS (cores e fontes) são injetadas inline via
+   functions.php (artemis_dynamic_css). Editar pelo Customizer.
+   ============================================================= */
+
+/* ---------- Reset leve ---------- */
+.artemis-blog *, .artemis-blog *::before, .artemis-blog *::after{ box-sizing: border-box; }
+.artemis-blog{ -webkit-text-size-adjust: 100%; }
+.artemis-blog{
+	margin: 0;
+	font-family: var(--artemis-font-body);
+	color: var(--artemis-color-text);
+	background: var(--artemis-color-bg-alt);
+	line-height: 1.6;
+	font-size: 16px;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+/* clip (não hidden!) — hidden criaria um scroll container e quebraria position: sticky */
+.artemis-blog{ overflow-x: clip; }
+.artemis-blog img, .artemis-blog svg, .artemis-blog video{ max-width: 100%; height: auto; display: block; }
+
+/* Cards inteiramente clicáveis (stretched link via título) */
+.artemis-blog .artemis-card, .artemis-blog .artemis-featured, .artemis-blog .artemis-card-dark{ position: relative; }
+.artemis-blog .artemis-card .card-title a::after, .artemis-blog .artemis-featured .featured-title a::after, .artemis-blog .artemis-card-dark .card-title a::after{
+	content: "";
+	position: absolute;
+	inset: 0;
+	z-index: 1;
+}
+/* Links internos (pill de categoria, Ver mais) ficam clicáveis acima do overlay */
+.artemis-blog .card-category, .artemis-blog .featured-category, .artemis-blog .card-cat-badge, .artemis-blog .card-readmore{
+	position: relative;
+	z-index: 2;
+}
+.artemis-blog a{ color: var(--artemis-color-primary); text-decoration: none; }
+.artemis-blog a:hover{ color: var(--artemis-color-primary-hover); }
+.artemis-blog h1, .artemis-blog h2, .artemis-blog h3, .artemis-blog h4, .artemis-blog h5, .artemis-blog h6{
+	font-family: var(--artemis-font-heading);
+	color: var(--artemis-color-text);
+	line-height: 1.25;
+	margin: 0 0 .6em;
+	font-weight: 700;
+	letter-spacing: -.01em;
+}
+.artemis-blog p{ margin: 0 0 1em; }
+.artemis-blog ul, .artemis-blog ol{ margin: 0 0 1em; padding-left: 1.4em; }
+.artemis-blog blockquote{
+	margin: 1.5em 0;
+	padding: 1em 1.4em;
+	border-left: 4px solid var(--artemis-color-primary);
+	background: var(--artemis-color-bg-alt);
+	font-style: italic;
+}
+.artemis-blog code, .artemis-blog pre{
+	font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+	background: var(--artemis-color-bg-alt);
+	border-radius: 4px;
+}
+.artemis-blog code{ padding: .15em .35em; font-size: .92em; }
+.artemis-blog pre{ padding: 1em 1.2em; overflow-x: auto; }
+.artemis-blog hr{ border: 0; height: 1px; background: var(--artemis-color-border); margin: 2em 0; }
+
+/* ---------- Acessibilidade ---------- */
+.artemis-blog .screen-reader-text{
+	position: absolute !important;
+	clip: rect(1px,1px,1px,1px);
+	width: 1px; height: 1px; overflow: hidden;
+	word-wrap: normal !important;
+}
+.artemis-blog .skip-link{
+	position: absolute; left: -9999px; top: 12px; z-index: 9999;
+	background: var(--artemis-color-primary); color: var(--artemis-color-cta-text);
+	padding: 10px 18px; border-radius: 8px;
+	font-family: var(--artemis-font-heading); font-weight: 600; font-size: 14px;
+	box-shadow: 0 6px 16px -4px rgba(0,0,0,.3);
+}
+.artemis-blog .skip-link:focus{ left: 12px; color: var(--artemis-color-cta-text); }
+
+/* Focus visible global — keyboard navigation */
+.artemis-blog :focus-visible{
+	outline: 2px solid var(--artemis-color-primary);
+	outline-offset: 3px;
+	border-radius: 3px;
+}
+.artemis-blog .artemis-btn:focus-visible, .artemis-blog .filter-chip:focus-visible, .artemis-blog .card-readmore:focus-visible, .artemis-blog .share-btn:focus-visible, .artemis-blog .footer-icon-btn:focus-visible, .artemis-blog .related-arrow:focus-visible{
+	outline-offset: 4px;
+}
+.artemis-blog .site-nav a:focus-visible{ outline-offset: 2px; }
+.artemis-blog .artemis-card a:focus-visible, .artemis-blog .artemis-featured a:focus-visible, .artemis-blog .artemis-card-dark a:focus-visible{ outline-offset: 2px; }
+
+/* ---------- Layout base ---------- */
+.artemis-blog .artemis-container{ width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.artemis-blog .artemis-container.narrow{ max-width: 720px; }
+
+.artemis-blog .site-content{ min-height: 60vh; padding: 0; }
+
+/* ---------- Header ---------- */
+.artemis-blog .site-header{
+	background: var(--artemis-color-header-bg);
+	border-bottom: 1px solid var(--artemis-color-border);
+	position: sticky; top: 0; z-index: 100;
+	transition: box-shadow .2s ease, border-color .2s ease;
+}
+.artemis-blog .site-header.is-scrolled{
+	box-shadow: 0 6px 18px -10px rgba(0,0,0,.18);
+	border-bottom-color: transparent;
+}
+.artemis-blog .header-inner{
+	display: flex; align-items: center; gap: 32px;
+	padding: 16px 24px;
+	min-height: 72px;
+}
+.artemis-blog .site-branding{ display: flex; flex-direction: column; gap: 2px; }
+.artemis-blog .site-branding .custom-logo-link img, .artemis-blog .site-branding .custom-logo{ max-height: var(--artemis-logo-height, 48px); width: auto; height: var(--artemis-logo-height, 48px); }
+.artemis-blog .site-title{
+	font-family: var(--artemis-font-heading);
+	font-weight: 700; font-size: 22px;
+	color: var(--artemis-color-header-text);
+}
+.artemis-blog .site-description{ font-size: 13px; color: var(--artemis-color-header-text); opacity: .65; margin: 0; }
+
+.artemis-blog .site-nav{
+	display: flex; align-items: center; gap: 32px;
+	margin-left: auto;
+}
+.artemis-blog .site-nav ul{
+	display: flex; gap: 28px;
+	list-style: none; margin: 0; padding: 0;
+}
+.artemis-blog .site-nav li a{
+	color: var(--artemis-color-header-text);
+	font-weight: 500; font-size: 15px;
+	padding: 6px 0;
+	border-bottom: 2px solid transparent;
+	transition: border-color .15s ease, color .15s ease;
+}
+.artemis-blog .site-nav li.current-menu-item a, .artemis-blog .site-nav li a:hover{ color: var(--artemis-color-primary); border-bottom-color: var(--artemis-color-primary); }
+
+.artemis-blog .header-actions{ display: flex; align-items: center; gap: 12px; }
+.artemis-blog .nav-cta-wrap{ display: none; } /* CTA do painel — só aparece no menu mobile */
+
+.artemis-blog .menu-toggle{
+	display: none;
+	background: none; border: 0; cursor: pointer;
+	width: 40px; height: 40px;
+	flex-direction: column; justify-content: center; gap: 5px;
+	margin-left: auto; padding: 0;
+}
+.artemis-blog .menu-toggle span{
+	display: block; width: 22px; height: 2px;
+	background: var(--artemis-color-header-text);
+	transition: transform .2s, opacity .2s;
+}
+.artemis-blog .menu-toggle[aria-expanded="true"] span:nth-child(1){ transform: translateY(7px) rotate(45deg); }
+.artemis-blog .menu-toggle[aria-expanded="true"] span:nth-child(2){ opacity: 0; }
+.artemis-blog .menu-toggle[aria-expanded="true"] span:nth-child(3){ transform: translateY(-7px) rotate(-45deg); }
+
+/* Busca inline no header */
+.artemis-blog .header-search-form{
+	display: flex; align-items: center; gap: 0;
+	position: relative;
+}
+.artemis-blog .search-toggle{
+	background: none; border: 0; cursor: pointer;
+	width: 40px; height: 40px;
+	display: inline-flex; align-items: center; justify-content: center;
+	color: var(--artemis-color-header-text);
+	border-radius: 8px;
+	flex-shrink: 0;
+}
+.artemis-blog .search-toggle:hover{ opacity: .75; }
+.artemis-blog .header-search-input, .artemis-blog .header-search-submit, .artemis-blog .search-close{
+	display: none;
+}
+.artemis-blog .header-search-form.is-open .search-toggle{ display: none; }
+.artemis-blog .header-search-form.is-open .header-search-input, .artemis-blog .header-search-form.is-open .header-search-submit, .artemis-blog .header-search-form.is-open .search-close{
+	display: inline-flex;
+}
+.artemis-blog .header-search-form.is-open{
+	background: var(--artemis-color-bg-alt);
+	border: 1px solid var(--artemis-color-border);
+	border-radius: 10px;
+	padding: 4px 4px 4px 14px;
+	width: 320px;
+	transition: width .2s ease;
+}
+.artemis-blog .header-search-input{
+	flex: 1; min-width: 0;
+	border: 0; background: transparent; outline: 0;
+	padding: 8px 0;
+	font: inherit; color: var(--artemis-color-text);
+	align-items: center;
+}
+.artemis-blog .header-search-submit{
+	background: var(--artemis-color-primary); color: var(--artemis-color-cta-text);
+	border: 0; border-radius: 8px;
+	width: 36px; height: 36px;
+	align-items: center; justify-content: center;
+	cursor: pointer;
+}
+.artemis-blog .search-close{
+	background: none; border: 0; cursor: pointer;
+	width: 32px; height: 32px;
+	color: var(--artemis-color-muted);
+	align-items: center; justify-content: center;
+	border-radius: 8px;
+}
+.artemis-blog .search-close:hover{ background: rgba(0,0,0,.05); color: var(--artemis-color-text); }
+
+/* ---------- Botões ---------- */
+.artemis-blog .artemis-btn{
+	display: inline-flex; align-items: center; justify-content: center;
+	gap: 8px;
+	padding: 11px 24px;
+	font-family: var(--artemis-font-heading);
+	font-weight: 600; font-size: 15px;
+	border-radius: 999px;
+	border: 2px solid transparent;
+	cursor: pointer;
+	transition: transform .12s ease, background .15s ease, color .15s ease, border-color .15s ease;
+	text-decoration: none;
+	line-height: 1.2;
+}
+.artemis-blog .artemis-btn:hover{ transform: translateY(-1px); }
+.artemis-blog .artemis-btn-primary{
+	background: var(--artemis-color-primary);
+	color: var(--artemis-color-cta-text);
+	border-color: var(--artemis-color-primary);
+}
+.artemis-blog .artemis-btn-primary:hover{
+	background: var(--artemis-color-primary-hover);
+	border-color: var(--artemis-color-primary-hover);
+	color: var(--artemis-color-cta-text);
+}
+/* CTA do header — variante "dark" inspirada nas refs (Bikenow etc.) */
+.artemis-blog .header-cta{
+	background: var(--artemis-color-cta-header);
+	border-color: var(--artemis-color-cta-header);
+	color: var(--artemis-color-cta-text);
+	padding: 12px 26px;
+	border-radius: 999px;
+}
+.artemis-blog .header-cta:hover{
+	background: var(--artemis-color-primary);
+	border-color: var(--artemis-color-primary);
+	color: var(--artemis-color-cta-text);
+}
+/* CTA do single (sidebar do post) — cor de fundo/texto próprias, independentes da cor primária */
+.artemis-blog .single-cta{
+	background: var(--artemis-color-cta-single-bg);
+	border-color: var(--artemis-color-cta-single-bg);
+	color: var(--artemis-color-cta-single-text);
+}
+.artemis-blog .single-cta:hover{
+	filter: brightness(.92);
+	color: var(--artemis-color-cta-single-text);
+}
+.artemis-blog .artemis-btn-ghost{
+	background: transparent;
+	color: var(--artemis-color-primary);
+	border-color: var(--artemis-color-primary);
+}
+.artemis-blog .artemis-btn-ghost:hover{ background: var(--artemis-color-primary); color: var(--artemis-color-cta-text); }
+.artemis-blog .artemis-btn-lg{ padding: 14px 28px; font-size: 16px; }
+.artemis-blog .artemis-btn-block{ display: flex; width: 100%; }
+
+/* ---------- Search form ---------- */
+.artemis-blog .search-form{
+	display: flex; align-items: center; gap: 0;
+	background: var(--artemis-color-bg-alt);
+	border: 1px solid var(--artemis-color-border);
+	border-radius: 10px;
+	padding: 4px;
+	max-width: 560px;
+}
+.artemis-blog .search-form .search-field{
+	flex: 1; border: 0; background: transparent; outline: 0;
+	padding: 10px 14px; font: inherit; color: var(--artemis-color-text);
+}
+.artemis-blog .search-form .search-submit{
+	background: var(--artemis-color-primary); color: var(--artemis-color-cta-text);
+	border: 0; border-radius: 8px;
+	width: 40px; height: 40px;
+	display: inline-flex; align-items: center; justify-content: center;
+	cursor: pointer;
+}
+
+/* ---------- Breadcrumbs (sempre 1 linha, título truncado) ---------- */
+.artemis-blog .artemis-breadcrumbs{
+	font-size: 13px; color: var(--artemis-color-muted);
+	margin: 24px 0 8px;
+	display: flex; gap: 8px; flex-wrap: nowrap;
+	align-items: center;
+	overflow: hidden;
+	white-space: nowrap;
+}
+.artemis-blog .artemis-breadcrumbs a{ color: var(--artemis-color-muted); flex-shrink: 0; }
+.artemis-blog .artemis-breadcrumbs a:hover{ color: var(--artemis-color-primary); }
+.artemis-blog .artemis-breadcrumbs [aria-current="page"]{
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	min-width: 0;
+}
+.artemis-blog .crumb-sep{ opacity: .5; flex-shrink: 0; }
+
+/* ---------- Home: Hero featured ---------- */
+.artemis-blog .home-hero{ padding: 56px 0 32px; }
+.artemis-blog .home-latest{ padding: 16px 0 120px; }
+/* Títulos das seções só na HOME ficam maiores (não afeta archive/author/etc) */
+.artemis-blog .home-hero .section-title{ font-size: 40px; }
+.artemis-blog .home-latest .section-title{ font-size: 34px; }
+@media (max-width: 768px){
+	.artemis-blog .home-hero .section-title{ font-size: 28px; }
+	.artemis-blog .home-latest .section-title{ font-size: 24px; }
+}
+.artemis-blog .artemis-cta-section{ padding: 32px 0 48px; }
+.artemis-blog .hero-grid{
+	display: flex; gap: 24px;
+	align-items: stretch;
+}
+.artemis-blog .hero-grid > .artemis-featured--hero{ flex: 2 1 0; min-width: 0; }
+.artemis-blog .hero-side-stack{
+	flex: 1 1 0; min-width: 0;
+	display: flex; flex-direction: column; gap: 24px;
+}
+.artemis-blog .hero-side-stack > .artemis-featured--side{ flex: 1 1 0; min-height: 0; }
+.artemis-blog .hero-grid--1 > .artemis-featured--hero{ flex: 1 1 100%; }
+.artemis-blog .hero-grid--2{ gap: 24px; }
+.artemis-blog .hero-grid--2 .hero-side-stack{ flex: 1.2 1 0; }
+
+.artemis-blog .artemis-featured{
+	display: flex; flex-direction: column;
+	background: var(--artemis-color-bg);
+	border-radius: 16px;
+	overflow: hidden;
+	box-shadow: 0 4px 24px -10px rgba(0,0,0,.08);
+	transition: transform .15s ease, box-shadow .2s ease;
+}
+.artemis-blog .artemis-featured:hover{ transform: translateY(-3px); box-shadow: 0 12px 36px -12px rgba(0,0,0,.18); }
+.artemis-blog .artemis-featured--hero{ }
+.artemis-blog .artemis-featured--side{ flex-direction: row; align-items: stretch; }
+.artemis-blog .artemis-featured--side .featured-thumb{ flex: 0 0 38%; max-width: 38%; aspect-ratio: auto; border-radius: 0; min-height: 100%; }
+.artemis-blog .artemis-featured--side .featured-body{ flex: 1; padding: 18px 22px; display: flex; flex-direction: column; justify-content: center; gap: 10px; }
+.artemis-blog .artemis-featured--side .featured-title{
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	margin: 0;
+}
+.artemis-blog .artemis-featured--side .card-readmore{ margin-top: 0; }
+.artemis-blog .artemis-featured--side .featured-category{ margin-bottom: 0; }
+
+.artemis-blog .featured-thumb{
+	display: block;
+	background: var(--artemis-color-bg-alt);
+	aspect-ratio: 16 / 10;
+	overflow: hidden;
+}
+.artemis-blog .featured-thumb img{ width: 100%; height: 100%; object-fit: cover; transition: transform .35s ease; }
+.artemis-blog .artemis-featured:hover .featured-thumb img{ transform: scale(1.03); }
+.artemis-blog .featured-body{ padding: 24px 28px 26px; }
+
+.artemis-blog .thumb-placeholder{
+	display: block; width: 100%; height: 100%;
+	background: linear-gradient(135deg, var(--artemis-color-bg-alt) 0%, var(--artemis-color-border) 100%);
+}
+
+/* Pill colorido pra categoria */
+.artemis-blog .featured-category, .artemis-blog .card-category{
+	display: inline-block;
+	align-self: flex-start;
+	width: auto;
+	font-family: var(--artemis-font-heading);
+	font-size: 11px; font-weight: 700;
+	text-transform: uppercase; letter-spacing: .1em;
+	color: var(--artemis-color-cta-text);
+	background: var(--artemis-color-primary);
+	padding: 5px 12px;
+	border-radius: 999px;
+	margin-bottom: 14px;
+	line-height: 1;
+}
+.artemis-blog .featured-category:hover, .artemis-blog .card-category:hover{
+	background: var(--artemis-color-primary-hover);
+	color: var(--artemis-color-cta-text);
+}
+
+.artemis-blog .featured-title{ font-size: 26px; margin: 0 0 12px; }
+.artemis-blog .artemis-featured--hero .featured-title{ font-size: 30px; }
+.artemis-blog .artemis-featured--side .featured-title{ font-size: 18px; margin-bottom: 10px; }
+.artemis-blog .featured-title a{ color: inherit; }
+.artemis-blog .featured-title a:hover{ color: var(--artemis-color-primary); }
+.artemis-blog .featured-excerpt{ color: var(--artemis-color-muted); margin: 0 0 16px; }
+
+/* Link "Ver mais →" — usado em todos os cards (featured e card) */
+.artemis-blog .card-readmore{
+	display: inline-flex; align-items: center; gap: 6px;
+	align-self: flex-start;
+	width: auto;
+	font-family: var(--artemis-font-heading);
+	font-weight: 600; font-size: 14.5px;
+	color: var(--artemis-color-primary);
+	text-decoration: none;
+	margin-top: auto;
+	transition: gap .15s ease;
+}
+.artemis-blog .card-readmore:hover{ color: var(--artemis-color-primary-hover); gap: 10px; }
+
+/* ---------- CTA Section ---------- */
+.artemis-blog .cta-section-inner{
+	background: var(--artemis-color-bg); /* mesma cor dos cards */
+	border: 1px solid var(--artemis-color-border);
+	border-radius: 16px;
+	padding: 40px 48px;
+	display: flex; align-items: center; gap: 32px;
+	flex-wrap: wrap;
+	box-shadow: 0 4px 24px -10px rgba(0,0,0,.08);
+}
+.artemis-blog .cta-section-text{ flex: 1; min-width: 280px; }
+.artemis-blog .cta-section-title{ font-size: 26px; margin: 0 0 8px; }
+.artemis-blog .cta-section-subtitle{ margin: 0; color: var(--artemis-color-muted); font-size: 16px; }
+
+/* ---------- Section header ---------- */
+.artemis-blog .section-header{ margin: 40px 0 24px; }
+.artemis-blog .section-header--inline{ margin: 0 0 24px; }
+.artemis-blog .section-title{ font-size: 28px; margin: 0; }
+.artemis-blog .section-desc{ color: var(--artemis-color-muted); margin-top: 8px; }
+.artemis-blog .section-search{ margin-top: 16px; }
+
+/* ---------- AJAX loading state ---------- */
+.artemis-blog [data-posts-target]{ transition: opacity .2s ease; position: relative; }
+.artemis-blog [data-posts-target].is-loading{ opacity: .4; pointer-events: none; }
+.artemis-blog [data-posts-target].is-loading::after{
+	content: '';
+	position: absolute; top: 80px; left: 50%;
+	width: 32px; height: 32px;
+	border: 3px solid var(--artemis-color-border);
+	border-top-color: var(--artemis-color-primary);
+	border-radius: 50%;
+	transform: translateX(-50%);
+	animation: artemis-spin 0.7s linear infinite;
+}
+@keyframes artemis-spin{ to { transform: translateX(-50%) rotate(360deg); } }
+
+/* ---------- Filtros de categoria (chips) ---------- */
+.artemis-blog .artemis-filters{
+	display: flex; gap: 10px;
+	flex-wrap: wrap;
+	margin: 0 0 28px;
+}
+.artemis-blog .filter-chip{
+	display: inline-flex; align-items: center;
+	padding: 8px 18px;
+	font-family: var(--artemis-font-heading);
+	font-size: 14px; font-weight: 600;
+	color: var(--artemis-color-text);
+	background: var(--artemis-color-bg);
+	border: 1px solid var(--artemis-color-border);
+	border-radius: 999px;
+	text-decoration: none;
+	transition: background .15s ease, color .15s ease, border-color .15s ease;
+}
+.artemis-blog .filter-chip:hover{
+	background: var(--artemis-color-primary);
+	color: var(--artemis-color-cta-text);
+	border-color: var(--artemis-color-primary);
+}
+.artemis-blog .filter-chip.is-active{
+	background: var(--artemis-color-primary);
+	color: var(--artemis-color-cta-text);
+	border-color: var(--artemis-color-primary);
+}
+.artemis-blog .filter-chip.is-active:hover{ background: var(--artemis-color-primary-hover); border-color: var(--artemis-color-primary-hover); }
+
+/* ---------- Grid de cards ---------- */
+.artemis-blog .artemis-grid{
+	display: grid; gap: 28px;
+	grid-template-columns: repeat(3, 1fr);
+}
+.artemis-blog .artemis-card{
+	display: flex; flex-direction: column;
+	background: var(--artemis-color-bg);
+	border-radius: 16px;
+	overflow: hidden;
+	box-shadow: 0 4px 24px -10px rgba(0,0,0,.08);
+	transition: transform .15s ease, box-shadow .2s ease;
+}
+.artemis-blog .artemis-card:hover{ transform: translateY(-3px); box-shadow: 0 12px 36px -12px rgba(0,0,0,.18); }
+.artemis-blog .card-thumb{
+	display: block;
+	aspect-ratio: 16 / 10;
+	background: var(--artemis-color-bg-alt);
+	overflow: hidden;
+}
+.artemis-blog .card-thumb img{ width: 100%; height: 100%; object-fit: cover; transition: transform .3s ease; }
+.artemis-blog .artemis-card:hover .card-thumb img{ transform: scale(1.04); }
+.artemis-blog .card-body{ padding: 22px 24px 24px; display: flex; flex-direction: column; flex: 1; }
+.artemis-blog .card-title{ font-size: 19px; line-height: 1.35; margin: 0 0 10px; }
+.artemis-blog .card-title a{ color: var(--artemis-color-text); }
+.artemis-blog .card-title a:hover{ color: var(--artemis-color-primary); }
+.artemis-blog .card-excerpt{ color: var(--artemis-color-muted); font-size: 14.5px; margin: 0 0 16px; }
+.artemis-blog .meta-sep{ opacity: .5; }
+
+/* ---------- Page hero (archive, search, author, 404) ---------- */
+.artemis-blog .page-hero{
+	background: var(--artemis-color-footer-bg);
+	color: #fff;
+	padding: 56px 0 64px;
+}
+.artemis-blog .page-hero .artemis-breadcrumbs{ margin-top: 0; margin-bottom: 20px; color: rgba(255,255,255,.6); }
+.artemis-blog .page-hero .artemis-breadcrumbs a{ color: rgba(255,255,255,.6); }
+.artemis-blog .page-hero .artemis-breadcrumbs a:hover{ color: var(--artemis-color-primary); }
+.artemis-blog .page-hero .crumb-sep{ color: rgba(255,255,255,.3); }
+
+.artemis-blog .page-hero-eyebrow{
+	display: inline-block;
+	font-family: var(--artemis-font-heading);
+	font-size: 13px; font-weight: 600;
+	text-transform: uppercase; letter-spacing: .12em;
+	color: var(--artemis-color-primary);
+	margin: 0 0 14px;
+}
+.artemis-blog .page-hero-title{
+	font-size: 44px; line-height: 1.1;
+	margin: 0 0 16px;
+	color: #fff;
+	letter-spacing: -.02em;
+}
+.artemis-blog .page-hero-desc{ color: rgba(255,255,255,.75); font-size: 17px; margin: 0; max-width: 680px; }
+.artemis-blog .page-hero-search{ margin-top: 28px; max-width: 560px; }
+.artemis-blog .page-hero-search .search-form{
+	background: rgba(255,255,255,.08);
+	border-color: rgba(255,255,255,.15);
+	max-width: none;
+}
+.artemis-blog .page-hero-search .search-field{ color: #fff; }
+.artemis-blog .page-hero-search .search-field::placeholder{ color: rgba(255,255,255,.5); }
+.artemis-blog .page-hero-search .search-submit{ background: var(--artemis-color-primary); }
+
+/* Author page hero variant */
+.artemis-blog .page-hero--author .author-hero{ display: flex; gap: 28px; align-items: center; }
+.artemis-blog .author-hero-avatar img{
+	width: 96px; height: 96px;
+	border-radius: 50%;
+	object-fit: cover;
+	border: 3px solid rgba(255,255,255,.15);
+}
+.artemis-blog .author-hero-info{ flex: 1; min-width: 0; }
+.artemis-blog .author-hero-url a{ color: rgba(255,255,255,.7); font-size: 14px; }
+.artemis-blog .author-hero-url a:hover{ color: var(--artemis-color-primary); }
+
+/* ---------- Archive list wrapper ---------- */
+.artemis-blog .archive-list{ padding: 48px 0 120px; }
+.artemis-blog .archive-list .section-header{ margin-top: 0; }
+
+/* ---------- Single (estilo Intacta: hero dark com split) ---------- */
+.artemis-blog .artemis-container.narrow{ max-width: 820px; }
+
+.artemis-blog .single-hero{
+	background: var(--artemis-color-footer-bg);
+	color: #fff;
+	overflow: hidden;
+}
+/* 60/40 full-bleed — imagem preenche altura e vai até a borda direita;
+   texto alinhado ao container global via padding calculado */
+.artemis-blog .single-hero-inner{
+	display: grid;
+	grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+	align-items: stretch;
+	min-height: 440px;
+}
+.artemis-blog .single-hero--no-image .single-hero-inner{ grid-template-columns: 1fr; min-height: 360px; }
+.artemis-blog .single-hero-content{
+	display: flex; flex-direction: column; justify-content: center;
+	padding: 56px 0;
+	min-width: 0;
+}
+.artemis-blog .single-hero-content > .artemis-container{
+	max-width: none;
+	margin: 0;
+	/* alinha o texto com a borda esquerda do container global de 1200px */
+	padding-left: max(24px, calc((100vw - 1200px) / 2 + 24px));
+	padding-right: 48px;
+}
+.artemis-blog .single-hero-content .artemis-breadcrumbs{
+	margin: 0 0 20px;
+	color: rgba(255,255,255,.6);
+	font-size: 13px;
+}
+.artemis-blog .single-hero-content .artemis-breadcrumbs a{ color: rgba(255,255,255,.6); }
+.artemis-blog .single-hero-content .artemis-breadcrumbs a:hover{ color: var(--artemis-color-primary); }
+.artemis-blog .single-hero-content .crumb-sep{ color: rgba(255,255,255,.3); }
+
+.artemis-blog .single-cat-tag{
+	display: inline-flex; align-items: center; gap: 8px;
+	color: #fff;
+	font-family: var(--artemis-font-heading);
+	font-size: 14px; font-weight: 600;
+	padding: 0; margin-bottom: 20px;
+	opacity: .85;
+}
+.artemis-blog .single-cat-tag:hover{ color: var(--artemis-color-primary); opacity: 1; }
+
+.artemis-blog .single-title{
+	font-size: 48px; line-height: 1.1;
+	margin: 0 0 32px;
+	color: #fff;
+	letter-spacing: -.02em;
+}
+
+.artemis-blog .single-author{ display: flex; align-items: center; gap: 14px; }
+.artemis-blog .single-author-avatar img{
+	width: 48px; height: 48px;
+	border-radius: 50%;
+	object-fit: cover;
+	border: 2px solid rgba(255,255,255,.15);
+}
+.artemis-blog .single-author-info{ display: flex; flex-direction: column; gap: 4px; }
+.artemis-blog .single-author-name{
+	font-family: var(--artemis-font-heading);
+	font-weight: 600; font-size: 15px;
+	color: #fff;
+	line-height: 1.2;
+}
+.artemis-blog .single-author-name:hover{ color: var(--artemis-color-primary); }
+.artemis-blog .single-author-meta{
+	display: flex; align-items: center; gap: 8px;
+	font-size: 13px; color: rgba(255,255,255,.6);
+}
+.artemis-blog .single-author-meta time{ color: inherit; }
+
+.artemis-blog .single-hero-image{
+	position: relative;
+	background: #0F0F0F;
+	min-height: 440px;
+	min-width: 0;
+}
+.artemis-blog .single-hero-image img{
+	position: absolute; inset: 0;
+	width: 100%; height: 100%;
+	object-fit: cover;
+}
+
+/* ---------- Body do single (2 colunas: main + sidebar) ---------- */
+.artemis-blog .single-post{ padding: 0; background: var(--artemis-color-bg); }
+.artemis-blog .single-post > .artemis-container{ padding-bottom: 96px; }
+.artemis-blog .single-meta-row{
+	display: flex; align-items: center; gap: 10px;
+	color: var(--artemis-color-muted); font-size: 14px;
+	margin: 0 0 24px;
+}
+.artemis-blog .single-layout{
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) 340px;
+	gap: 56px;
+	padding-top: 48px; /* respiro entre o hero e o conteúdo — local, não afeta o resto do site */
+}
+.artemis-blog .single-main{ min-width: 0; }
+.artemis-blog .single-sidebar{ display: flex; flex-direction: column; gap: 28px; }
+
+/* Sidebar blocks */
+.artemis-blog .sidebar-search .search-form{ width: 100%; max-width: none; }
+.artemis-blog .sidebar-block{ }
+.artemis-blog .sidebar-title{
+	font-family: var(--artemis-font-heading);
+	font-size: 22px; font-weight: 700;
+	margin: 0 0 18px;
+	color: var(--artemis-color-text);
+}
+.artemis-blog .sidebar-related-list{ list-style: none; padding: 0; margin: 0; }
+.artemis-blog .sidebar-related-list li{
+	padding: 16px 0;
+	border-bottom: 1px solid var(--artemis-color-border);
+}
+.artemis-blog .sidebar-related-list li:first-child{ padding-top: 0; }
+.artemis-blog .sidebar-related-list li:last-child{ border-bottom: 0; padding-bottom: 0; }
+.artemis-blog .sidebar-related-title{
+	display: block;
+	font-family: var(--artemis-font-heading);
+	font-weight: 600; font-size: 15px;
+	color: var(--artemis-color-text);
+	margin-bottom: 8px;
+	line-height: 1.35;
+}
+.artemis-blog .sidebar-related-title:hover{ color: var(--artemis-color-primary); }
+.artemis-blog .sidebar-related-link{
+	font-family: var(--artemis-font-heading);
+	font-weight: 700; font-size: 13.5px;
+	color: var(--artemis-color-primary);
+	letter-spacing: .01em;
+}
+.artemis-blog .sidebar-related-link:hover{ color: var(--artemis-color-primary-hover); }
+
+/* CTA sidebar — dark, sticky, imagem opcional */
+.artemis-blog .artemis-cta-sidebar{
+	position: sticky;
+	top: 96px;
+	z-index: 1;
+	background: var(--artemis-color-footer-bg);
+	color: #fff;
+	border-radius: 14px;
+	overflow: hidden;
+	border: 0;
+	box-shadow: 0 6px 22px -10px rgba(0,0,0,.15);
+}
+.artemis-blog .cta-sidebar-image{
+	display: block;
+	aspect-ratio: 16 / 10;
+	background: #0F0F0F;
+	overflow: hidden;
+}
+.artemis-blog .cta-sidebar-image img{ width: 100%; height: 100%; object-fit: cover; display: block; }
+.artemis-blog .cta-sidebar-body{ padding: 24px 28px 28px; }
+.artemis-blog .cta-sidebar-title{ font-size: 22px; line-height: 1.25; margin: 0 0 10px; color: #fff; }
+.artemis-blog .cta-sidebar-text{ color: rgba(255,255,255,.7); margin: 0 0 20px; font-size: 14.5px; }
+.artemis-blog .artemis-cta-sidebar .artemis-btn{ width: 100%; }
+
+.artemis-blog .sidebar-widgets .widget{ margin-bottom: 24px; }
+.artemis-blog .sidebar-widgets .widget:last-child{ margin-bottom: 0; }
+.artemis-blog .widget-title{ font-size: 16px; margin: 0 0 12px; color: var(--artemis-color-text); }
+
+.artemis-blog .artemis-post-categories{ display: none; }
+.artemis-blog .cat-chip{
+	display: inline-block;
+	font-family: var(--artemis-font-heading);
+	font-size: 11px; font-weight: 700;
+	letter-spacing: .1em; text-transform: uppercase;
+	color: var(--artemis-color-cta-text);
+	background: var(--artemis-color-primary);
+	padding: 6px 14px; border-radius: 999px;
+	line-height: 1;
+}
+.artemis-blog .cat-chip:hover{ background: var(--artemis-color-primary-hover); color: var(--artemis-color-cta-text); }
+
+.artemis-blog .entry-content{
+	font-size: 17.5px; line-height: 1.75;
+	color: var(--artemis-color-body);
+}
+.artemis-blog .entry-content h2, .artemis-blog .entry-content h3, .artemis-blog .entry-content h4{ color: var(--artemis-color-text); }
+.artemis-blog .entry-content strong, .artemis-blog .entry-content b{ color: var(--artemis-color-text); font-weight: 700; }
+.artemis-blog .entry-content > * + *{ margin-top: 1.15em; }
+.artemis-blog .entry-content > *:first-child{ margin-top: 0; }
+.artemis-blog .entry-content p{ margin: 0 0 1.15em; }
+.artemis-blog .entry-content h2{
+	font-size: 30px; line-height: 1.25;
+	margin: 1.8em 0 .5em;
+	letter-spacing: -.01em;
+}
+.artemis-blog .entry-content > h2:first-child{ margin-top: 0; }
+.artemis-blog .entry-content h3{
+	font-size: 22px; line-height: 1.3;
+	margin: 1.8em 0 .4em;
+}
+.artemis-blog .entry-content h4{ font-size: 18px; margin: 1.6em 0 .4em; }
+.artemis-blog .entry-content ul, .artemis-blog .entry-content ol{ padding-left: 1.5em; margin: 0 0 1.4em; }
+.artemis-blog .entry-content li{ margin-bottom: .5em; }
+.artemis-blog .entry-content img, .artemis-blog .entry-content figure{ border-radius: 14px; margin: 2em 0; }
+.artemis-blog .entry-content figure img{ margin: 0; }
+.artemis-blog .entry-content figcaption{ text-align: center; font-size: 13.5px; color: var(--artemis-color-muted); margin-top: 10px; }
+.artemis-blog .entry-content a{
+	color: var(--artemis-color-primary);
+	text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 3px;
+}
+.artemis-blog .entry-content blockquote{
+	margin: 2em 0;
+	padding: 1.2em 1.6em;
+	border-left: 4px solid var(--artemis-color-primary);
+	background: var(--artemis-color-bg-alt);
+	border-radius: 0 12px 12px 0;
+	font-style: italic;
+	font-size: 1.05em;
+}
+
+.artemis-blog .entry-tags{ display: flex; gap: 8px; flex-wrap: wrap; align-items: center; font-size: 14px; color: var(--artemis-color-muted); margin: 32px 0 0; padding-top: 24px; border-top: 1px solid var(--artemis-color-border); }
+.artemis-blog .entry-tags .tags-label{ font-weight: 600; color: var(--artemis-color-text); margin-right: 4px; }
+.artemis-blog .entry-tags a{
+	display: inline-block; padding: 5px 12px;
+	background: var(--artemis-color-bg);
+	border: 1px solid var(--artemis-color-border);
+	border-radius: 999px;
+	color: var(--artemis-color-text);
+	font-size: 13px;
+}
+.artemis-blog .entry-tags a:hover{ background: var(--artemis-color-primary); color: var(--artemis-color-cta-text); border-color: var(--artemis-color-primary); }
+
+/* ---------- Social share ---------- */
+.artemis-blog .artemis-social-share{
+	display: flex; align-items: center; justify-content: space-between;
+	gap: 20px; flex-wrap: wrap;
+	background: var(--artemis-color-bg);
+	border: 1px solid var(--artemis-color-border);
+	border-radius: 12px;
+	padding: 18px 24px;
+	margin: 40px 0 0;
+}
+.artemis-blog .share-label{ font-size: 16px; font-weight: 700; margin: 0; }
+.artemis-blog .share-buttons{ display: flex; gap: 8px; }
+.artemis-blog .share-btn{
+	display: inline-flex; align-items: center; justify-content: center;
+	width: 40px; height: 40px;
+	border-radius: 6px;
+	color: #fff;
+	transition: opacity .15s ease, transform .15s ease;
+}
+.artemis-blog .share-btn:hover{ transform: translateY(-2px); color: #fff; }
+.artemis-blog .share-btn--facebook{ background: #1877F2; }
+.artemis-blog .share-btn--linkedin{ background: #0A66C2; }
+.artemis-blog .share-btn--whatsapp{ background: #25D366; }
+.artemis-blog .share-btn--email{ background: #DC4E41; }
+
+/* ---------- Author box (centralizado, estilo Intacta) ---------- */
+.artemis-blog .artemis-author-box{
+	display: flex; flex-direction: column; align-items: flex-start;
+	background: var(--artemis-color-bg);
+	border: 1px solid var(--artemis-color-border);
+	border-radius: 12px;
+	padding: 28px;
+	margin: 24px 0 0;
+	gap: 14px;
+}
+.artemis-blog .author-box-avatar img{ border-radius: 8px; width: 88px; height: 88px; object-fit: cover; }
+.artemis-blog .author-box-name{ font-size: 22px; margin: 0; color: var(--artemis-color-text); font-weight: 600; }
+.artemis-blog .author-box-bio{ color: var(--artemis-color-muted); margin: 0; font-size: 14.5px; line-height: 1.5; }
+.artemis-blog .artemis-author-box > * + *{ margin-top: 0; }
+.artemis-blog .author-box-cta{ padding: 10px 24px; }
+
+/* ---------- CTA inline (substitui sidebar) ---------- */
+.artemis-blog .artemis-cta-inline{
+	display: flex; align-items: center; gap: 32px; flex-wrap: wrap;
+	background: var(--artemis-color-bg);
+	border-radius: 18px;
+	padding: 32px 36px;
+	margin: 32px 0 0;
+	box-shadow: 0 4px 24px -12px rgba(0,0,0,.08);
+	border-left: 6px solid var(--artemis-color-primary);
+}
+.artemis-blog .cta-inline-text{ flex: 1; min-width: 260px; }
+.artemis-blog .cta-inline-title{ font-size: 22px; margin: 0 0 6px; }
+.artemis-blog .cta-inline-desc{ margin: 0; color: var(--artemis-color-muted); font-size: 15px; }
+
+/* ---------- Related (dark, estilo Intacta) ---------- */
+.artemis-blog .artemis-related{
+	margin: 0;
+	padding: 80px 0 120px;
+	background: var(--artemis-color-footer-bg);
+	color: #fff;
+}
+.artemis-blog .related-header{ margin-bottom: 36px; }
+.artemis-blog .related-title{
+	font-size: 36px; margin: 0;
+	color: #fff;
+	letter-spacing: -.01em;
+	font-weight: 400;
+}
+.artemis-blog .related-title-thin{ font-weight: 300; opacity: .85; }
+.artemis-blog .related-title-bold{ font-weight: 700; }
+
+.artemis-blog .related-header{
+	display: flex; align-items: center; justify-content: space-between;
+	gap: 24px;
+	margin-bottom: 36px;
+	flex-wrap: wrap;
+}
+.artemis-blog .related-nav{ display: flex; gap: 10px; }
+.artemis-blog .related-arrow{
+	display: inline-flex; align-items: center; justify-content: center;
+	width: 44px; height: 44px;
+	border-radius: 8px;
+	background: var(--artemis-color-primary);
+	color: var(--artemis-color-cta-text);
+	border: 0;
+	cursor: pointer;
+	transition: background .15s ease, opacity .15s ease;
+}
+.artemis-blog .related-arrow:hover{ background: var(--artemis-color-primary-hover); }
+.artemis-blog .related-arrow:disabled{ opacity: .3; cursor: not-allowed; }
+
+.artemis-blog .related-slider{
+	overflow: hidden;
+	margin: 0;
+}
+.artemis-blog .related-track{
+	display: flex; gap: 28px;
+	overflow-x: auto;
+	scroll-snap-type: x mandatory;
+	-webkit-overflow-scrolling: touch;
+	scrollbar-width: none;
+	padding: 4px 0;
+}
+.artemis-blog .related-track::-webkit-scrollbar{ display: none; }
+.artemis-blog .related-track > article{
+	flex: 0 0 calc((100% - 56px) / 3);
+	scroll-snap-align: start;
+	min-width: 0;
+}
+
+.artemis-blog .artemis-card-dark{
+	display: flex; flex-direction: column;
+	background: var(--artemis-color-bg);
+	border-radius: 14px;
+	overflow: hidden;
+	border: 1px solid var(--artemis-color-border);
+	transition: transform .18s ease, box-shadow .2s ease;
+}
+.artemis-blog .artemis-card-dark:hover{
+	transform: translateY(-3px);
+	box-shadow: 0 12px 36px -12px rgba(0,0,0,.35);
+}
+.artemis-blog .artemis-card-dark .card-thumb{
+	display: block;
+	aspect-ratio: 16 / 10;
+	background: var(--artemis-color-bg-alt);
+	overflow: hidden;
+	position: relative;
+}
+.artemis-blog .artemis-card-dark .card-thumb img{ width: 100%; height: 100%; object-fit: cover; transition: transform .3s ease; }
+.artemis-blog .artemis-card-dark:hover .card-thumb img{ transform: scale(1.04); }
+.artemis-blog .card-cat-badge{
+	position: absolute; left: 14px; bottom: 14px;
+	background: var(--artemis-color-primary);
+	color: var(--artemis-color-cta-text);
+	font-family: var(--artemis-font-heading);
+	font-size: 11px; font-weight: 700;
+	letter-spacing: .08em; text-transform: uppercase;
+	padding: 6px 12px;
+	border-radius: 6px;
+	line-height: 1;
+}
+.artemis-blog .artemis-card-dark .card-body{ padding: 22px 24px 24px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+.artemis-blog .artemis-card-dark .card-title{ font-size: 18px; line-height: 1.35; margin: 0; }
+.artemis-blog .artemis-card-dark .card-title a{ color: var(--artemis-color-text); }
+.artemis-blog .artemis-card-dark .card-title a:hover{ color: var(--artemis-color-primary); }
+.artemis-blog .artemis-card-dark .card-excerpt{
+	color: var(--artemis-color-muted);
+	font-size: 14px;
+	margin: 0;
+}
+.artemis-blog .artemis-card-dark .card-readmore{
+	margin-top: auto;
+	color: var(--artemis-color-primary);
+	font-weight: 700; font-size: 14px;
+}
+.artemis-blog .artemis-card-dark .card-readmore:hover{ color: var(--artemis-color-primary-hover); }
+
+/* ---------- Comentários ---------- */
+.artemis-blog .comments-area{ margin-top: 56px; padding-top: 40px; border-top: 1px solid var(--artemis-color-border); }
+.artemis-blog .comments-title, .artemis-blog .comment-reply-title{ font-size: 22px; margin-bottom: 24px; }
+.artemis-blog .comment-list{ list-style: none; padding: 0; }
+.artemis-blog .comment-list li{ padding: 16px 0; border-bottom: 1px solid var(--artemis-color-border); }
+.artemis-blog .comment-form input[type=text], .artemis-blog .comment-form input[type=email], .artemis-blog .comment-form input[type=url], .artemis-blog .comment-form textarea{
+	width: 100%; padding: 10px 12px;
+	border: 1px solid var(--artemis-color-border); border-radius: 8px;
+	background: var(--artemis-color-bg);
+	font: inherit; color: var(--artemis-color-text);
+}
+.artemis-blog .comment-form textarea{ min-height: 120px; resize: vertical; }
+.artemis-blog .comment-form .submit, .artemis-blog .comment-form input[type=submit]{
+	background: var(--artemis-color-primary); color: var(--artemis-color-cta-text);
+	border: 0; padding: 12px 24px; border-radius: 8px;
+	font: inherit; font-weight: 600; cursor: pointer;
+}
+
+/* ---------- Paginação ---------- */
+.artemis-blog .artemis-pagination{ margin-top: 40px; }
+.artemis-blog .artemis-pagination ul{ display: flex; gap: 6px; list-style: none; padding: 0; margin: 0; flex-wrap: wrap; }
+.artemis-blog .artemis-pagination a, .artemis-blog .artemis-pagination span{
+	display: inline-flex; align-items: center; justify-content: center;
+	min-width: 40px; height: 40px; padding: 0 12px;
+	border: 1px solid var(--artemis-color-border); border-radius: 8px;
+	color: var(--artemis-color-text); background: var(--artemis-color-bg);
+	font-weight: 500;
+}
+.artemis-blog .artemis-pagination a:hover{ background: var(--artemis-color-bg-alt); }
+.artemis-blog .artemis-pagination .current{ background: var(--artemis-color-primary); color: var(--artemis-color-cta-text); border-color: var(--artemis-color-primary); }
+
+/* ---------- 404 actions ---------- */
+.artemis-blog .error-404-actions{ padding: 48px 0; }
+.artemis-blog .err-actions{ display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+/* ---------- No results ---------- */
+.artemis-blog .no-results{ padding: 48px 0; text-align: center; }
+.artemis-blog .no-results-title{ margin: 0 0 8px; }
+.artemis-blog .no-results-text{ color: var(--artemis-color-muted); margin: 0 0 16px; }
+.artemis-blog .no-results-search{ display: flex; justify-content: center; }
+
+/* ---------- Footer (polido, estilo CF Plantas) ---------- */
+.artemis-blog .site-footer{
+	background: var(--artemis-color-footer-bg);
+	color: var(--artemis-color-footer-text);
+	padding: 56px 0 0;
+	margin-top: 0;
+}
+.artemis-blog .site-footer a{ color: var(--artemis-color-footer-text); text-decoration: none; transition: color .15s ease; }
+.artemis-blog .site-footer a:hover{ color: var(--artemis-color-primary); }
+
+.artemis-blog .footer-inner{
+	display: grid;
+	grid-template-columns: 1fr auto 1fr;
+	align-items: center;
+	gap: 32px;
+	padding: 0 0 56px;
+}
+.artemis-blog .footer-side{ display: flex; align-items: center; min-height: 56px; }
+.artemis-blog .footer-side--left{ justify-content: flex-start; }
+.artemis-blog .footer-side--right{ justify-content: flex-end; }
+
+.artemis-blog .footer-brand{ display: flex; align-items: center; justify-content: center; min-height: 56px; }
+.artemis-blog .footer-brand .custom-logo, .artemis-blog .footer-brand .custom-logo-link img{ max-height: var(--artemis-logo-height-footer, 64px); width: auto; height: var(--artemis-logo-height-footer, 64px); }
+.artemis-blog .footer-brand .site-title{
+	font-family: var(--artemis-font-heading);
+	font-weight: 700; font-size: 26px;
+	color: var(--artemis-color-footer-text);
+	letter-spacing: -.01em;
+}
+
+.artemis-blog .footer-icon-btn{
+	display: inline-flex; align-items: center; justify-content: center;
+	width: 44px; height: 44px;
+	border-radius: 50%;
+	color: #fff;
+	transition: transform .18s ease, background .15s ease, border-color .15s ease, color .15s ease, opacity .15s ease;
+}
+.artemis-blog .footer-icon-btn:hover{
+	transform: translateY(-2px);
+	color: #fff;
+}
+/* WhatsApp flutuante site-wide */
+.artemis-blog .floating-whatsapp{
+	position: fixed; bottom: 24px; right: 24px;
+	z-index: 200;
+	display: inline-flex; align-items: center; justify-content: center;
+	width: 60px; height: 60px;
+	border-radius: 50%;
+	background: #25D366;
+	color: #fff;
+	box-shadow: 0 8px 24px -6px rgba(37,211,102,.5);
+	transition: transform .2s ease, box-shadow .2s ease;
+	animation: artemis-pulse 2.4s ease-in-out infinite;
+}
+.artemis-blog .floating-whatsapp:hover{
+	background: #1FBA58; color: #fff;
+	transform: scale(1.08);
+	box-shadow: 0 12px 32px -6px rgba(37,211,102,.6);
+}
+@keyframes artemis-pulse{
+	0%, 100% { box-shadow: 0 8px 24px -6px rgba(37,211,102,.5), 0 0 0 0 rgba(37,211,102,.4); }
+	50% { box-shadow: 0 8px 24px -6px rgba(37,211,102,.5), 0 0 0 12px rgba(37,211,102,0); }
+}
+
+/* WhatsApp do rodapé: ghost com ícone branco, par do botão de topo */
+.artemis-blog .footer-icon-btn--whatsapp{
+	background: transparent;
+	border: 1.5px solid var(--artemis-color-footer-text);
+	color: var(--artemis-color-footer-text);
+	opacity: .65;
+}
+.artemis-blog .footer-icon-btn--whatsapp:hover{
+	background: #25D366;
+	border-color: #25D366;
+	color: #fff;
+	opacity: 1;
+}
+.artemis-blog .footer-icon-btn--top{
+	background: transparent;
+	border: 1.5px solid var(--artemis-color-footer-text);
+	color: var(--artemis-color-footer-text);
+	opacity: .65;
+}
+.artemis-blog .footer-icon-btn--top:hover{
+	background: var(--artemis-color-primary);
+	border-color: var(--artemis-color-primary);
+	color: #fff;
+	opacity: 1;
+}
+/* Vence o `.site-footer a:hover` genérico — ícone sempre branco no hover */
+.artemis-blog .site-footer a.footer-icon-btn--top:hover, .artemis-blog .site-footer a.footer-icon-btn--whatsapp:hover{ color: #fff; }
+
+.artemis-blog .footer-bottom{
+	border-top: 1px solid var(--artemis-color-border);
+	padding: 22px 0;
+	font-size: 13.5px;
+}
+.artemis-blog .footer-bottom-inner{
+	display: flex; align-items: center; justify-content: space-between;
+	gap: 16px; flex-wrap: wrap;
+}
+.artemis-blog .footer-copy, .artemis-blog .footer-credit{ margin: 0; color: var(--artemis-color-footer-text); }
+.artemis-blog .footer-credit a{ font-weight: 600; color: var(--artemis-color-footer-text); }
+.artemis-blog .footer-credit a:hover{ color: var(--artemis-color-primary); }
+
+/* =========================================================
+   Responsivo
+   ========================================================= */
+
+/* ---------- Notebook / tablet landscape (≤1200px) ---------- */
+@media (max-width: 1200px){
+	.artemis-blog .single-layout{ grid-template-columns: minmax(0, 1fr) 300px; gap: 40px; }
+	.artemis-blog .single-title{ font-size: 40px; }
+	.artemis-blog .artemis-featured--hero .featured-title{ font-size: 26px; }
+	.artemis-blog .featured-title{ font-size: 22px; }
+}
+
+/* ---------- Tablet (≤1024px) ---------- */
+@media (max-width: 1024px){
+	.artemis-blog .artemis-grid{ grid-template-columns: repeat(2, 1fr); }
+	.artemis-blog .related-grid{ grid-template-columns: repeat(2, 1fr); }
+	.artemis-blog .related-track > article{ flex: 0 0 calc((100% - 28px) / 2); }
+
+	/* Single vira 1 coluna; sidebar desce pro fim */
+	.artemis-blog .single-layout{ grid-template-columns: 1fr; gap: 48px; }
+	.artemis-blog .single-sidebar{ position: static; }
+	.artemis-blog .artemis-cta-sidebar{ position: static; }
+
+	/* Hero da home empilha */
+	.artemis-blog .hero-grid{ flex-direction: column; }
+	.artemis-blog .hero-side-stack{ flex-direction: row; flex-wrap: wrap; }
+	.artemis-blog .hero-side-stack > .artemis-featured--side{ flex: 1 1 calc(50% - 12px); }
+	.artemis-blog .artemis-featured--side .featured-thumb{ aspect-ratio: 16 / 10; min-height: 0; }
+
+	/* Hero do single comprime */
+	.artemis-blog .single-hero-inner{ min-height: 380px; }
+	.artemis-blog .single-hero-image{ min-height: 380px; }
+	.artemis-blog .single-hero-content{ padding: 44px 0; }
+	.artemis-blog .single-title{ font-size: 34px; }
+
+	.artemis-blog .page-hero-title{ font-size: 36px; }
+	.artemis-blog .entry-content{ font-size: 17px; }
+}
+
+/* ---------- Mobile (≤768px) ---------- */
+@media (max-width: 768px){
+	/* Header / menu */
+	.artemis-blog .menu-toggle{ display: inline-flex; order: 3; }
+	.artemis-blog .site-nav{
+		display: none;
+		position: absolute; left: 0; right: 0; top: 100%;
+		background: var(--artemis-color-header-bg);
+		border-bottom: 1px solid var(--artemis-color-border);
+		box-shadow: 0 14px 28px -16px rgba(0,0,0,.2);
+		flex-direction: column;
+		gap: 0;
+		padding: 16px 24px 20px;
+		margin: 0;
+		z-index: 99;
+	}
+	.artemis-blog .site-nav.is-open{ display: flex; }
+	.artemis-blog .site-nav ul{ flex-direction: column; gap: 4px; width: 100%; }
+	.artemis-blog .site-nav li a{ display: block; padding: 12px 0; border-bottom: 1px solid var(--artemis-color-border); }
+	.artemis-blog .site-nav li:last-child a{ border-bottom: 0; }
+
+	/* CTA dentro do painel do hambúrguer */
+	.artemis-blog .nav-cta-wrap{ display: block; padding-top: 14px; }
+	.artemis-blog .nav-cta-wrap .artemis-btn{ width: 100%; justify-content: center; }
+
+	/* Lupa sempre visível no header; CTA do header esconde no mobile */
+	.artemis-blog .header-actions{ width: auto; margin-left: auto; gap: 4px; }
+	.artemis-blog .header-cta{ display: none; }
+	.artemis-blog .header-inner{ position: relative; gap: 8px; padding: 12px 16px; min-height: 64px; }
+	.artemis-blog .site-branding .custom-logo-link img, .artemis-blog .site-branding .custom-logo{ max-height: 32px; height: 32px; }
+	.artemis-blog .site-title{ font-size: 18px; }
+	.artemis-blog .site-description{ display: none; }
+
+	/* Busca expandida vira overlay sobre o header */
+	.artemis-blog .header-search-form.is-open{
+		position: absolute;
+		left: 12px; right: 12px; top: 50%;
+		transform: translateY(-50%);
+		width: auto;
+		z-index: 10;
+	}
+
+	/* Tipografia geral */
+	.artemis-blog .entry-title{ font-size: 28px; }
+	.artemis-blog .artemis-featured--hero .featured-title{ font-size: 24px; }
+	.artemis-blog .featured-title{ font-size: 19px; }
+	.artemis-blog .section-title{ font-size: 22px; }
+
+	/* Home */
+	.artemis-blog .home-hero{ padding: 32px 0 24px; }
+	.artemis-blog .home-latest{ padding: 8px 0 72px; }
+	.artemis-blog .hero-side-stack{ flex-direction: column; }
+	.artemis-blog .hero-side-stack > .artemis-featured--side{ flex: 1 1 auto; }
+	/* Side cards viram card vertical simplificado (imagem em cima, texto embaixo) */
+	.artemis-blog .artemis-featured--side{ flex-direction: column; }
+	.artemis-blog .artemis-featured--side .featured-thumb{ flex: none; max-width: 100%; aspect-ratio: 16 / 9; }
+	.artemis-blog .artemis-featured--side .featured-body{ padding: 18px 20px 20px; justify-content: flex-start; }
+	.artemis-blog .artemis-featured--side .featured-title{ -webkit-line-clamp: 3; font-size: 18px; }
+	.artemis-blog .featured-body{ padding: 20px 20px 22px; }
+
+	/* Filtros: quebram em múltiplas linhas, todos visíveis */
+	.artemis-blog .artemis-filters{ flex-wrap: wrap; gap: 8px; }
+	.artemis-blog .filter-chip{ padding: 7px 14px; font-size: 13px; }
+
+	/* CTA section — min-width zerado pra não estourar viewport estreita */
+	.artemis-blog .cta-section-inner{ padding: 28px 24px; flex-direction: column; align-items: stretch; gap: 20px; }
+	.artemis-blog .cta-section-text, .artemis-blog .cta-inline-text{ min-width: 0; }
+	.artemis-blog .cta-section-title{ font-size: 22px; }
+	.artemis-blog .cta-section-action .artemis-btn{ width: 100%; justify-content: center; }
+	.artemis-blog .featured-body, .artemis-blog .card-body, .artemis-blog .single-main, .artemis-blog .author-box-info{ min-width: 0; }
+
+	/* Grids */
+	.artemis-blog .artemis-grid{ grid-template-columns: 1fr; gap: 20px; }
+	.artemis-blog .related-grid{ grid-template-columns: 1fr; gap: 20px; }
+	.artemis-blog .related-track > article{ flex: 0 0 86%; }
+	.artemis-blog .related-title{ font-size: 24px; }
+	.artemis-blog .related-header{ margin-bottom: 24px; }
+	.artemis-blog .artemis-related{ padding: 48px 0 56px; }
+
+	/* Single — título primeiro, imagem depois (full-width) */
+	.artemis-blog .single-hero-inner{ grid-template-columns: 1fr; min-height: 0; }
+	.artemis-blog .single-hero-content{ order: 1; padding: 32px 0 28px; }
+	.artemis-blog .single-hero-content > .artemis-container{ padding-left: 16px; padding-right: 16px; }
+	.artemis-blog .single-hero-image{ order: 2; min-height: 0; aspect-ratio: 16 / 9; }
+	.artemis-blog .single-title{ font-size: 26px; margin-bottom: 20px; }
+	.artemis-blog .single-post > .artemis-container{ padding-bottom: 64px; }
+	.artemis-blog .single-layout{ gap: 40px; }
+	.artemis-blog .artemis-social-share{ flex-direction: column; align-items: flex-start; gap: 14px; padding: 18px 20px; }
+	.artemis-blog .artemis-author-box{ padding: 22px 20px; }
+	.artemis-blog .entry-content{ font-size: 16.5px; }
+	.artemis-blog .entry-content h2{ font-size: 24px; }
+	.artemis-blog .entry-content h3{ font-size: 19px; }
+
+	/* Page hero (archive/search/author/404) */
+	.artemis-blog .page-hero{ padding: 36px 0 40px; }
+	.artemis-blog .page-hero-title{ font-size: 28px; }
+	.artemis-blog .page-hero-desc{ font-size: 15px; }
+	.artemis-blog .page-hero--author .author-hero{ flex-direction: column; align-items: flex-start; gap: 16px; }
+	.artemis-blog .author-hero-avatar img{ width: 72px; height: 72px; }
+	.artemis-blog .archive-list{ padding: 36px 0 56px; }
+
+	/* Pagination */
+	.artemis-blog .artemis-pagination ul{ justify-content: center; }
+
+	/* Footer — logo no topo, ícones juntos embaixo, copy compacto */
+	.artemis-blog .site-footer{ padding-top: 32px; }
+	.artemis-blog .footer-inner{
+		grid-template-columns: 1fr 1fr;
+		gap: 18px 16px;
+		padding-bottom: 24px;
+	}
+	.artemis-blog .footer-brand{ grid-row: 1; grid-column: 1 / -1; justify-self: center; }
+	.artemis-blog .footer-brand .custom-logo, .artemis-blog .footer-brand .custom-logo-link img{ max-height: 36px; height: 36px; }
+	.artemis-blog .footer-side{ min-height: 0; }
+	.artemis-blog .footer-side--left{ grid-row: 2; grid-column: 1; justify-self: end; justify-content: flex-end; }
+	.artemis-blog .footer-side--right{ grid-row: 2; grid-column: 2; justify-self: start; justify-content: flex-start; }
+	/* Sem WhatsApp configurado, centraliza o botão de topo sozinho */
+	.artemis-blog .footer-inner--single-icon .footer-side--left{ display: none; }
+	.artemis-blog .footer-inner--single-icon .footer-side--right{ grid-column: 1 / -1; justify-self: center; justify-content: center; }
+	.artemis-blog .footer-icon-btn{ width: 42px; height: 42px; }
+	.artemis-blog .footer-bottom{ padding: 14px 0; }
+	.artemis-blog .footer-bottom-inner{ flex-direction: column; justify-content: center; text-align: center; gap: 6px; font-size: 12.5px; }
+	/* WhatsApp flutuante não cobre o rodapé compacto */
+	.artemis-blog .floating-whatsapp{ bottom: 14px; right: 14px; }
+
+	/* WhatsApp flutuante menor */
+	.artemis-blog .floating-whatsapp{ width: 52px; height: 52px; bottom: 16px; right: 16px; }
+}
+
+/* ---------- Mobile pequeno (≤480px) ---------- */
+@media (max-width: 480px){
+	.artemis-blog .artemis-container{ padding: 0 16px; }
+	.artemis-blog .entry-title{ font-size: 24px; }
+	.artemis-blog .single-title{ font-size: 23px; }
+	.artemis-blog .page-hero-title{ font-size: 24px; }
+	.artemis-blog .section-title{ font-size: 20px; }
+	.artemis-blog .related-track > article{ flex: 0 0 92%; }
+	.artemis-blog .related-arrow{ width: 38px; height: 38px; }
+	.artemis-blog .share-buttons{ width: 100%; justify-content: space-between; }
+	.artemis-blog .share-btn{ flex: 1; border-radius: 8px; }
+	.artemis-blog .artemis-cta-inline{ padding: 24px 20px; }
+	.artemis-blog .err-eyebrow{ font-size: 60px; }
+	.artemis-blog .artemis-pagination a, .artemis-blog .artemis-pagination span{ min-width: 36px; height: 36px; font-size: 14px; }
+}
+
+/* ---------- Print ---------- */
+@media print{
+	.artemis-blog .site-header, .artemis-blog .site-footer, .artemis-blog .single-sidebar, .artemis-blog .artemis-cta-inline, .artemis-blog .artemis-cta-sidebar, .artemis-blog .artemis-cta-section, .artemis-blog .artemis-social-share, .artemis-blog .artemis-author-box, .artemis-blog .artemis-related, .artemis-blog .artemis-filters, .artemis-blog .artemis-pagination, .artemis-blog .single-hero-image, .artemis-blog .single-hero-overlay, .artemis-blog .floating-whatsapp, .artemis-blog .footer-back-top, .artemis-blog .menu-toggle, .artemis-blog .search-toggle, .artemis-blog .header-search-form{
+		display: none !important;
+	}
+	.artemis-blog{ background: #fff; color: #000; font-size: 12pt; }
+	.artemis-blog .single-hero{ background: #fff; color: #000; padding: 0; }
+	.artemis-blog .single-hero-content{ padding: 0; }
+	.artemis-blog .single-hero-inner{ grid-template-columns: 1fr; min-height: 0; }
+	.artemis-blog .single-title{ color: #000; font-size: 24pt; }
+	.artemis-blog .single-author-name, .artemis-blog .single-cat-tag{ color: #555; }
+	.artemis-blog .single-layout{ grid-template-columns: 1fr; }
+	.artemis-blog .entry-content{ font-size: 12pt; }
+	.artemis-blog .entry-content a{ color: #000; text-decoration: underline; }
+	.artemis-blog .entry-content a[href]:after{ content: " (" attr(href) ")"; font-size: 10pt; color: #555; }
+}

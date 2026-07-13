@@ -1,0 +1,149 @@
+/* Artemis Convert - Admin (meta box Configurações do CTA) */
+#artemis_convert_cta_settings_inner .artemis-cta-section {
+	margin-bottom: 1.5em;
+	padding-bottom: 1.5em;
+	border-bottom: 1px solid #dcdcde;
+}
+#artemis_convert_cta_settings_inner .artemis-cta-section:last-of-type {
+	border-bottom: none;
+	padding-bottom: 0;
+	margin-bottom: 0;
+}
+
+#artemis_convert_cta_settings_inner .artemis-cta-section-title {
+	font-size: 1em;
+	font-weight: 600;
+	margin: 0 0 0.75em 0;
+	padding: 0;
+	color: #1d2327;
+}
+
+.artemis-cta-image-preview img {
+	display: block;
+	margin-bottom: 8px;
+	border: 1px solid #c3c4c7;
+}
+.artemis-cta-image-preview:empty {
+	display: none;
+}
+.artemis-cta-image-wrap .description {
+	margin-top: 4px;
+}
+.artemis-cta-device-options {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px 18px;
+}
+.artemis-cta-device-options label {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	margin: 0;
+}
+
+/* Posição: opções visuais (cards) */
+.artemis-cta-type-options,
+.artemis-cta-position-options {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+.artemis-cta-type-option,
+.artemis-cta-position-option {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	padding: 10px 14px;
+	min-width: 120px;
+	border: 1px solid #c3c4c7;
+	border-radius: 4px;
+	background: #fff;
+	cursor: pointer;
+	transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+.artemis-cta-type-option {
+	min-width: 160px;
+}
+.artemis-cta-type-option:hover,
+.artemis-cta-position-option:hover {
+	border-color: #8c8f94;
+}
+.artemis-cta-type-option.is-selected,
+.artemis-cta-type-option:focus-within,
+.artemis-cta-position-option.is-selected,
+.artemis-cta-position-option:focus-within {
+	border-color: #2271b1;
+	background: #f0f6fc;
+	box-shadow: 0 0 0 1px #2271b1;
+}
+.artemis-cta-type-option input[type="radio"],
+.artemis-cta-position-option input[type="radio"] {
+	position: absolute;
+	opacity: 0;
+	width: 0;
+	height: 0;
+	margin: 0;
+}
+.artemis-cta-type-label,
+.artemis-cta-position-label {
+	font-weight: 600;
+	display: block;
+	margin-bottom: 2px;
+}
+.artemis-cta-type-desc,
+.artemis-cta-position-desc {
+	font-size: 12px;
+	color: #646970;
+}
+
+/* UTM accordion */
+.artemis-cta-utm-toggle-btn {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	padding: 6px 0;
+	margin: 0;
+	border: none;
+	background: none;
+	font-size: 13px;
+	color: #2271b1;
+	cursor: pointer;
+	text-align: left;
+}
+.artemis-cta-utm-toggle-btn:hover {
+	color: #135e96;
+	text-decoration: underline;
+}
+.artemis-cta-utm-toggle-icon {
+	display: inline-block;
+	width: 0;
+	height: 0;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-top: 6px solid currentColor;
+	transition: transform 0.2s ease;
+}
+.artemis-cta-utm-toggle.is-open .artemis-cta-utm-toggle-icon {
+	transform: rotate(180deg);
+}
+.artemis-cta-utm-toggle-content {
+	margin-top: 10px;
+	padding-top: 10px;
+	border-top: 1px solid #dcdcde;
+}
+.artemis-cta-utm-toggle-content p {
+	margin: 0 0 8px 0;
+}
+.artemis-cta-utm-toggle-content p:last-child {
+	margin-bottom: 0;
+}
+
+/* Miniaturas na listagem de CTAs */
+img.artemis-cta-list-thumb {
+	width: 100%;
+	max-width: 48px;
+	height: auto;
+	display: block;
+	border: 1px solid #c3c4c7;
+	border-radius: 2px;
+}
