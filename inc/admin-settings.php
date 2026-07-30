@@ -56,8 +56,11 @@ function artemis_register_settings() {
 add_action( 'admin_init', 'artemis_register_settings' );
 
 /**
- * Botão "Preencher tudo": aplica a predefinição dark (cores + textos + WhatsApp)
- * por cima das configurações atuais e volta pro painel com aviso.
+ * Botão "Aplicar tema dark": joga a paleta da predefinição por cima das cores
+ * atuais e volta pro painel com aviso.
+ *
+ * Só cores e layout — nenhum texto, link ou mídia é tocado (ver o porquê no
+ * docblock de artemis_config_preset()).
  */
 function artemis_handle_preset() {
 	if ( ! isset( $_POST['artemis_apply_preset'] ) ) {
@@ -297,7 +300,7 @@ function artemis_settings_page_render() {
 		<p class="description"><?php esc_html_e( 'O blog é renderizado em modo canvas, com cabeçalho e rodapé próprios (isolados do tema do site). Aqui você edita toda a identidade: cores de cabeçalho, miolo e rodapé, fontes, logos, CTA global e conteúdo do rodapé.', 'artemis-blog' ); ?></p>
 
 		<?php if ( isset( $_GET['artemis_preset'] ) ) : ?>
-			<div class="notice notice-success is-dismissible"><p><?php esc_html_e( 'Pronto! Tema dark, textos de CTA e WhatsApp preenchidos. Ajuste o que quiser abaixo e clique em Salvar.', 'artemis-blog' ); ?></p></div>
+			<div class="notice notice-success is-dismissible"><p><?php esc_html_e( 'Pronto! Paleta dark aplicada. Ajuste o que quiser abaixo e clique em Salvar.', 'artemis-blog' ); ?></p></div>
 		<?php endif; ?>
 
 		<?php
@@ -308,8 +311,8 @@ function artemis_settings_page_render() {
 
 		<form method="post" style="margin:16px 0;padding:14px 18px;border:1px solid #c3c4c7;border-left:4px solid #2271b1;background:#fff;">
 			<?php wp_nonce_field( 'artemis_apply_preset' ); ?>
-			<p style="margin:0 0 10px;"><strong><?php esc_html_e( 'Preencher tudo automaticamente', 'artemis-blog' ); ?></strong> — <?php esc_html_e( 'aplica de uma vez um tema dark pronto + textos de CTA + link do WhatsApp. Você ajusta depois. Não mexe em logos/imagens nem na página do blog.', 'artemis-blog' ); ?></p>
-			<button type="submit" name="artemis_apply_preset" value="1" class="button button-primary">⚡ <?php esc_html_e( 'Preencher tudo (tema dark)', 'artemis-blog' ); ?></button>
+			<p style="margin:0 0 10px;"><strong><?php esc_html_e( 'Tema dark pronto', 'artemis-blog' ); ?></strong> — <?php esc_html_e( 'aplica de uma vez uma paleta dark coerente. Você ajusta depois. Não mexe em textos, links, logos/imagens nem na página do blog.', 'artemis-blog' ); ?></p>
+			<button type="submit" name="artemis_apply_preset" value="1" class="button button-primary">⚡ <?php esc_html_e( 'Aplicar tema dark', 'artemis-blog' ); ?></button>
 		</form>
 
 		<?php
@@ -409,7 +412,7 @@ function artemis_settings_page_render() {
 			<p class="description"><?php esc_html_e( 'Esse link alimenta todos os botões de chamada do blog (home, post).', 'artemis-blog' ); ?></p>
 			<table class="form-table" role="presentation">
 				<?php
-				artemis_field_url( $o, 'artemis_cta_url', __( 'URL de destino', 'artemis-blog' ), __( 'Ex.: https://hangcha-sp.com.br/contato', 'artemis-blog' ) );
+				artemis_field_url( $o, 'artemis_cta_url', __( 'URL de destino', 'artemis-blog' ), __( 'Ex.: https://seusite.com.br/contato', 'artemis-blog' ) );
 				artemis_field_text( $o, 'artemis_cta_label', __( 'Texto do botão', 'artemis-blog' ) );
 				artemis_field_checkbox( $o, 'artemis_cta_new_tab', __( 'Abrir em nova aba', 'artemis-blog' ), __( 'Abre o link do CTA numa nova aba', 'artemis-blog' ) );
 				artemis_field_text( $o, 'artemis_cta_section_title', __( 'Título da seção CTA (home)', 'artemis-blog' ) );

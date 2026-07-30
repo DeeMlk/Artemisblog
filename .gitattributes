@@ -1,0 +1,7 @@
+# Arquivos de desenvolvimento que NÃO vão no .zip de distribuição
+# (tools/build-zip.sh usa git archive, que respeita export-ignore).
+/.github         export-ignore
+/.gitattributes  export-ignore
+/.gitignore      export-ignore
+/tools           export-ignore
+/CLAUDE.md       export-ignore

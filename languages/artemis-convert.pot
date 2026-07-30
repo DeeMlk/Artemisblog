@@ -1,0 +1,311 @@
+# Copyright (C) 2026 Artemis
+# This file is distributed under the GPL v2 or later.
+#
+# Gerado por tools/make-pot.php — não edite à mão.
+msgid ""
+msgstr ""
+"Project-Id-Version: Artemis Blog 1.4.0\n"
+"Report-Msgid-Bugs-To: https://artemis.com.br\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-07-30T23:57:28Z\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Domain: artemis-convert\n"
+
+#: inc/plugins/artemis-convert/inc/admin/cta/class-cpt-cta.php:35
+msgid "Adicionar novo"
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/cta/class-cpt-cta.php:36
+msgid "Adicionar novo CTA"
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/class-admin.php:40
+#: inc/plugins/artemis-convert/inc/admin/class-admin.php:41
+msgid "Artemis Convert"
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/Core/class-activator.php:25
+msgid "Artemis Convert requer PHP 7.4 ou superior."
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/class-settings.php:57
+msgid "Ativar métricas (views e cliques)"
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/cta/class-meta-box-cta.php:190
+msgid "Ativar no desktop"
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/cta/class-meta-box-cta.php:195
+msgid "Ativar no mobile"
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/cta/class-meta-box-cta.php:131
+msgid "Banner"
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/cta/class-meta-box-cta.php:116
+msgid "Banner com link"
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/cta/class-cpt-cta.php:40
+msgid "Buscar CTAs"
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/cta/class-cpt-cta.php:129
+msgid "CTA não encontrado."
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/cta/class-cpt-cta.php:208
+msgid "CTR"
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/cta/class-meta-box-cta.php:233
+msgid "Campaign"
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/cta/class-cpt-cta.php:207
+msgid "Cliques"
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/cta/class-meta-box-cta.php:180
+msgid "Cole o shortcode que deve ser exibido na posicao escolhida."
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/class-admin.php:50
+#: inc/plugins/artemis-convert/inc/admin/class-admin.php:51
+msgid "Configurações"
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/cta/class-meta-box-cta.php:49
+msgid "Configurações do CTA"
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/class-settings.php:68
+msgid "Configure se as visualizações e cliques dos CTAs devem ser registradas."
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/cta/class-meta-box-cta.php:110
+msgid "Conteudo"
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/cta/class-meta-box-cta.php:121
+msgid "Conteudo gerado por shortcode"
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/cta/class-cpt-cta.php:150
+msgid "Cópia"
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/cta/class-meta-box-cta.php:205
+msgid "Destino do link"
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/cta/class-cpt-cta.php:106
+msgid "Duplicar"
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/cta/class-cpt-cta.php:37
+msgid "Editar CTA"
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/cta/class-meta-box-cta.php:184
+msgid "Exibir em"
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/cta/class-meta-box-cta.php:246
+msgid "Exibição"
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/cta/class-cpt-cta.php:232
+#: inc/plugins/artemis-convert/inc/admin/cta/class-cpt-cta.php:233
+#: inc/plugins/artemis-convert/inc/admin/cta/class-cpt-cta.php:271
+#: inc/plugins/artemis-convert/inc/admin/cta/class-meta-box-cta.php:264
+msgid "Final"
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/cta/class-cpt-cta.php:238
+#: inc/plugins/artemis-convert/inc/admin/cta/class-meta-box-cta.php:115
+msgid "Imagem"
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/cta/class-cpt-cta.php:203
+msgid "Imagem (desktop)"
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/cta/class-cpt-cta.php:204
+msgid "Imagem (mobile)"
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/cta/class-meta-box-cta.php:134
+msgid "Imagem do banner"
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/cta/class-meta-box-cta.php:152
+msgid "Imagem para mobile (opcional)"
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/cta/class-cpt-cta.php:122
+msgid "Link inválido ou expirado."
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/cta/class-meta-box-cta.php:228
+msgid "Medium"
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/cta/class-cpt-cta.php:231
+#: inc/plugins/artemis-convert/inc/admin/cta/class-meta-box-cta.php:259
+msgid "Meio"
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/class-settings.php:51
+msgid "Métricas"
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/cta/class-cpt-cta.php:41
+msgid "Nenhum CTA encontrado"
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/cta/class-cpt-cta.php:42
+msgid "Nenhum CTA na lixeira"
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/cta/class-meta-box-cta.php:265
+msgid "No final do texto"
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/cta/class-meta-box-cta.php:255
+msgid "No início do texto"
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/cta/class-meta-box-cta.php:260
+msgid "No meio do texto"
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/cta/class-cpt-cta.php:38
+msgid "Novo CTA"
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/cta/class-cpt-cta.php:133
+msgid "Não foi possível duplicar o CTA."
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/class-settings.php:69
+msgid "Os dados ficam apenas no seu site; nenhuma informação é enviada a servidores externos."
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/cta/class-cpt-cta.php:205
+msgid "Posição"
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/cta/class-meta-box-cta.php:249
+#: inc/plugins/artemis-convert/inc/admin/cta/class-meta-box-cta.php:251
+msgid "Posição no post"
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/cta/class-meta-box-cta.php:219
+msgid "Rastreamento (UTM) – opcional"
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/cta/class-meta-box-cta.php:147
+msgid "Recomendado: 1200×400 px"
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/class-settings.php:81
+msgid "Registrar visualizações e cliques"
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/cta/class-meta-box-cta.php:145
+#: inc/plugins/artemis-convert/inc/admin/cta/class-meta-box-cta.php:163
+msgid "Remover"
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/class-settings.php:100
+msgid "Salvar"
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/cta/class-meta-box-cta.php:165
+msgid "Se preenchida, esta imagem será exibida em telas pequenas. Recomendado: 600×400 px."
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/cta/class-meta-box-cta.php:144
+#: inc/plugins/artemis-convert/inc/admin/cta/class-meta-box-cta.php:162
+msgid "Selecionar imagem"
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/cta/class-meta-box-cta.php:268
+msgid "Selecione uma ou mais posições — o CTA será exibido em todas as marcadas."
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/cta/class-cpt-cta.php:125
+msgid "Sem permissão para duplicar este CTA."
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/cta/class-cpt-cta.php:238
+#: inc/plugins/artemis-convert/inc/admin/cta/class-meta-box-cta.php:120
+#: inc/plugins/artemis-convert/inc/admin/cta/class-meta-box-cta.php:174
+#: inc/plugins/artemis-convert/inc/admin/cta/class-meta-box-cta.php:177
+msgid "Shortcode"
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/cta/class-meta-box-cta.php:223
+msgid "Source"
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/cta/class-cpt-cta.php:202
+msgid "Tipo"
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/cta/class-meta-box-cta.php:107
+#: inc/plugins/artemis-convert/inc/admin/cta/class-meta-box-cta.php:112
+msgid "Tipo do CTA"
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/cta/class-cpt-cta.php:34
+msgid "Todos os CTAs"
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/cta/class-cpt-cta.php:230
+#: inc/plugins/artemis-convert/inc/admin/cta/class-meta-box-cta.php:254
+msgid "Topo"
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/cta/class-meta-box-cta.php:208
+msgid "URL do link"
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/cta/class-meta-box-cta.php:272
+msgid "URLs excluídas"
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/cta/class-meta-box-cta.php:275
+msgid "Uma URL por linha. O CTA não será exibido nessas páginas."
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/cta/class-cpt-cta.php:39
+msgid "Ver CTA"
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/cta/class-cpt-cta.php:206
+msgid "Visualizações"
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/cta/class-cpt-cta.php:33
+msgctxt "admin menu"
+msgid "CTAs"
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/cta/class-cpt-cta.php:31
+msgctxt "post type general name"
+msgid "CTAs"
+msgstr ""
+
+#: inc/plugins/artemis-convert/inc/admin/cta/class-cpt-cta.php:32
+msgctxt "post type singular name"
+msgid "CTA"
+msgstr ""

@@ -23,7 +23,16 @@ if ( defined( 'ARTEMIS_CONVERT_VERSION' ) ) {
 define( 'ARTEMIS_CONVERT_VERSION', '1.3.0' );
 define( 'ARTEMIS_CONVERT_PLUGIN_DIR', ARTEMIS_PLUGIN_DIR . 'inc/plugins/artemis-convert/' );
 define( 'ARTEMIS_CONVERT_PLUGIN_URL', ARTEMIS_PLUGIN_URL . 'inc/plugins/artemis-convert/' );
-define( 'ARTEMIS_CONVERT_PLUGIN_BASENAME', 'artemis-convert/artemis-convert.php' );
+/*
+ * O subplugin usa esta constante num lugar só: dirname() dela vira o caminho
+ * (relativo a WP_PLUGIN_DIR) de onde load_plugin_textdomain() lê os .mo. O valor
+ * literal "artemis-convert/artemis-convert.php" apontava para uma pasta que NÃO
+ * existe quando o Convert roda embutido — as traduções dele nunca carregavam.
+ *
+ * Derivamos do arquivo principal para cair no languages/ deste plugin (e não de
+ * um nome de pasta chutado: o usuário pode ter renomeado a pasta na instalação).
+ */
+define( 'ARTEMIS_CONVERT_PLUGIN_BASENAME', dirname( plugin_basename( ARTEMIS_PLUGIN_FILE ) ) . '/artemis-convert.php' );
 // O tema original não definia isto — em PHP 8 o uso de constante indefinida é fatal.
 define( 'ARTEMIS_CONVERT_TEXT_DOMAIN', 'artemis-convert' );
 

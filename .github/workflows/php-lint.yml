@@ -1,0 +1,35 @@
+# Único check automatizado do repositório: sintaxe PHP.
+#
+# Não há suíte de testes nem build — a validação de comportamento é manual, num
+# WordPress real (ver CLAUDE.md, seção 3). Este workflow só garante que nenhum
+# fatal de sintaxe entre na branch, o que é barato e pega o erro mais comum.
+#
+# Roda nas versões que o plugin declara suportar: 7.4 (mínima do header) e 8.4.
+name: PHP Lint
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        php: ['7.4', '8.4']
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Instalar PHP ${{ matrix.php }}
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          coverage: none
+
+      - name: php -l em todos os arquivos
+        run: |
+          find . -name '*.php' -not -path './.git/*' -print0 \
+            | xargs -0 -n1 -P4 php -l
