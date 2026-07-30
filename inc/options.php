@@ -69,7 +69,8 @@ function artemis_default_settings() {
 		'artemis_logo_height'           => 48,
 		'artemis_logo_height_footer'    => 64,
 
-		/* Rodapé opcional do blog (desligado por padrão — o rodapé é do tema anfitrião) */
+		/* Rodapé próprio do canvas (templates/footer.php) — estes campos ligam
+		   os extras opcionais: WhatsApp e botão "voltar ao topo" saem desligados. */
 		'artemis_footer_text'           => '',
 		'artemis_footer_credit'         => 'Feito por Artemis',
 		'artemis_footer_credit_url'     => 'https://artemis.com.br',

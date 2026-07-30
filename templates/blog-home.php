@@ -2,8 +2,9 @@
 /**
  * Home do blog (página de posts) — destaques + CTA + filtros + grid 6/pág.
  *
- * Renderizada dentro do header/rodapé do tema anfitrião. Todo o miolo vive sob
- * .artemis-blog para o CSS ficar escopado. Filtro por categoria via ?artemis_cat=slug.
+ * Renderizada em modo canvas: artemis_header()/artemis_footer() montam o
+ * documento inteiro, sem o tema anfitrião. Todo o miolo vive sob .artemis-blog
+ * para o CSS ficar escopado. Filtro por categoria via ?artemis_cat=slug.
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

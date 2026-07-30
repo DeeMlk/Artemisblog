@@ -6,10 +6,13 @@
  * templates do plugin — mas SÓ nas telas do blog. Qualquer outra coisa (home
  * institucional, páginas do builder, CPTs do tema) segue renderizando normal.
  *
- * Os templates do plugin chamam get_header()/get_footer() do tema ANFITRIÃO
- * (herança do cabeçalho/rodapé do Hangcha) e usam os helpers abaixo para puxar
- * os parciais/sidebar/busca de dentro do plugin — já que get_template_part() e
- * get_sidebar() nativos só procurariam no tema.
+ * Os templates do plugin rodam em modo CANVAS: chamam artemis_header() /
+ * artemis_footer(), que montam o documento HTML inteiro a partir de
+ * templates/header.php e templates/footer.php — nunca get_header()/get_footer(),
+ * que traria de volta o cabeçalho e o rodapé do tema anfitrião.
+ *
+ * Os helpers abaixo puxam parciais/sidebar/busca de dentro do plugin pelo mesmo
+ * motivo: get_template_part() e get_sidebar() nativos só procurariam no tema.
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
