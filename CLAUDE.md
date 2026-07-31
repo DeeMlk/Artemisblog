@@ -58,7 +58,12 @@ templates/
 assets/
   css/main.css            GERADO por tools/scope-css.js — não edite à mão
   js/main.js              vanilla, IIFE, sem dependências
-tools/scope-css.js        reescopa o CSS do tema Artemis sob .artemis-blog
+languages/                GERADO por tools/make-pot.php — .pot das duas domains
+tools/
+  scope-css.js            reescopa o CSS do tema Artemis sob .artemis-blog
+  make-pot.php            extrai as strings traduzíveis (token_get_all, não regex)
+  build-zip.sh            empacota dist/artemis-blog-<versao>.zip via git archive
+.gitattributes            export-ignore do que não vai no .zip (tools/, CI, CLAUDE.md)
 README.md                 documentação do usuário final (instalação e uso)
 ```
 
@@ -66,8 +71,8 @@ README.md                 documentação do usuário final (instalação e uso)
 
 ## 3. Como rodar e verificar (comandos verificados)
 
-Não há build system, gerenciador de dependências nem suíte de testes. **Não existe
-`composer.json`, `package.json`, `.pot`, CI nem `readme.txt` de wordpress.org.**
+Não há gerenciador de dependências nem suíte de testes. **Não existe
+`composer.json`, `package.json` nem `readme.txt` de wordpress.org.**
 O que dá para rodar localmente:
 
 ```bash
@@ -76,7 +81,17 @@ find . -name '*.php' -not -path './.git/*' -print0 | xargs -0 -n1 php -l
 
 # Regenerar o CSS escopado + autocheck (chaves balanceadas, seletores sem escopo)
 node tools/scope-css.js <entrada.css> assets/css/main.css
+
+# Reextrair as strings traduzíveis (sem wp-cli/xgettext: usa token_get_all)
+php tools/make-pot.php                                        # → languages/artemis-blog.pot
+php tools/make-pot.php artemis-convert languages/artemis-convert.pot
+
+# Empacotar o .zip instalável (git archive — só arquivos commitados)
+bash tools/build-zip.sh                                       # → dist/artemis-blog-<versao>.zip
 ```
+
+O único check automatizado é o `.github/workflows/php-lint.yml`: roda `php -l` em
+PHP 7.4 e 8.4 a cada push. **Não testa comportamento** — isso segue manual.
 
 > **Atenção ao `scope-css.js`:** ele consome o `main.css` do **tema Artemis original**,
 > que **não está versionado neste repositório**. Sem esse arquivo-fonte em mãos, o
@@ -221,7 +236,8 @@ REST (`artemis-convert/v1/view` e `/click`) + `template_redirect` para cliques.
 - Importador de estilos do site anfitrião (Elementor → theme.json → CSS público da home).
 - Artemis Convert embutido com CTAs e métricas.
 - Seeder de conteúdo de exemplo, manual e idempotente.
-- Todos os 40 arquivos PHP passam em `php -l`.
+- Todos os 40 arquivos PHP passam em `php -l` (7.4 e 8.4, verificado no CI).
+- `.pot` das duas text domains, empacotador `.zip` e CI de sintaxe.
 - **Docblocks pré-canvas corrigidos** (`inc/router.php`, `inc/setup.php`,
   `inc/options.php`, `templates/blog-home.php`, `single.php`, `archive.php`,
   `author.php`, `search.php`). Eram resquício da versão em que o blog rodava dentro do
@@ -230,16 +246,13 @@ REST (`artemis-convert/v1/view` e `/click`) + `template_redirect` para cliques.
 
 **Pontos em aberto (reais, encontrados no código):**
 
-- **`artemis_config_preset()`** (`inc/options.php`) carrega textos de CTA e um número
-  de WhatsApp de um cliente específico (recuperação de dados), apesar de o plugin se
-  declarar genérico. É o conteúdo do botão "Preencher tudo" — ponto a limpar numa
-  generalização.
-- **i18n incompleto**: o header declara `Domain Path: /languages`, mas **não existe pasta
-  `languages/` nem arquivo `.pot`** no repositório. As strings estão marcadas; a extração
-  nunca foi feita.
 - **Fonte do CSS não versionada**: o `main.css` do tema Artemis que alimenta o
   `scope-css.js` está fora do repo, então o arquivo gerado não é reproduzível daqui.
-- **Sem testes automatizados e sem CI.** A verificação de comportamento é 100% manual.
+  **É a única pendência que exige um arquivo de fora.**
+- **Nenhuma tradução real**: os `.pot` existem, mas não há `.po`/`.mo` de nenhum
+  idioma — o plugin é pt-BR na origem, então a extração só serve a quem for traduzir.
+- **Sem teste de comportamento.** O CI cobre só sintaxe; as cinco telas e a regressão
+  do site anfitrião continuam sendo verificação manual, num WordPress real.
 
 ---
 
@@ -259,6 +272,11 @@ silenciosamente descartado no save):
 
 **Adicionar um parcial**: crie `templates/parts/<slug>-<name>.php` (com o guard `ABSPATH`)
 e chame `artemis_get_part( '<slug>', '<name>', $args )`.
+
+**Adicionar uma string visível**: marque com `__()`/`esc_html__()`/`esc_attr__()` no domain
+certo e rode `php tools/make-pot.php` — o `.pot` é gerado, não editado à mão. Strings
+montadas com variável não são extraíveis: use `sprintf( __( '%s ...' ), $x )`, nunca
+`__( $x )`.
 
 **Mudar o CSS do miolo**: edite o CSS-fonte do tema Artemis e regenere com `scope-css.js`;
 para override pontual, use o inline de `artemis_dynamic_css()`.
