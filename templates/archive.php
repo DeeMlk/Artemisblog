@@ -2,7 +2,7 @@
 /**
  * Archive (categoria, tag, data) — hero + grid.
  *
- * Dentro do header/rodapé do tema anfitrião; miolo sob .artemis-blog.
+ * Modo canvas (artemis_header()/artemis_footer()); miolo sob .artemis-blog.
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

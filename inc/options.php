@@ -69,7 +69,8 @@ function artemis_default_settings() {
 		'artemis_logo_height'           => 48,
 		'artemis_logo_height_footer'    => 64,
 
-		/* Rodapé opcional do blog (desligado por padrão — o rodapé é do tema anfitrião) */
+		/* Rodapé próprio do canvas (templates/footer.php) — estes campos ligam
+		   os extras opcionais: WhatsApp e botão "voltar ao topo" saem desligados. */
 		'artemis_footer_text'           => '',
 		'artemis_footer_credit'         => 'Feito por Artemis',
 		'artemis_footer_credit_url'     => 'https://artemis.com.br',
@@ -179,16 +180,21 @@ function artemis_blog_page_id() {
 }
 
 /**
- * Predefinição "tema dark pronto" — usada pelo botão "Preencher tudo" do painel.
+ * Predefinição "tema dark pronto" — usada pelo botão do painel.
  *
- * Aplica de uma vez: paleta dark coerente + textos de CTA + link de WhatsApp.
- * NÃO toca em logos/imagens (são mídias do site) nem na página do blog.
+ * Devolve SÓ aparência: uma paleta dark coerente (incluindo o footer_bg escuro
+ * que os heros e a seção de relacionados exigem) e dois flags de layout.
+ *
+ * Deliberadamente NÃO mexe em:
+ * - URLs (CTA e WhatsApp) — são dados do cliente; esta é uma distribuição
+ *   genérica e chumbar o link de alguém aqui já causou exatamente esse bug;
+ * - textos de CTA — artemis_default_settings() já traz versões neutras, e
+ *   sobrescrever o que o usuário escreveu seria pior que não fazer nada;
+ * - logos/imagens (são mídias do site) nem a página do blog.
  *
  * @return array
  */
 function artemis_config_preset() {
-	$wa = 'https://wa.me/5511985708000?text=Ol%C3%A1%2C%20vim%20do%20blog%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es';
-
 	return array(
 		// Paleta dark coerente.
 		'artemis_color_primary'         => '#3B82F6',
@@ -208,17 +214,7 @@ function artemis_config_preset() {
 		'artemis_color_cta_single_bg'   => '#12294A',
 		'artemis_color_cta_single_text' => '#FFFFFF',
 
-		// CTA + textos (contexto recuperação de dados).
-		'artemis_cta_url'               => $wa,
-		'artemis_cta_label'             => 'Recuperar meus dados',
-		'artemis_cta_new_tab'           => 1,
-		'artemis_cta_section_title'     => 'Perdeu dados importantes?',
-		'artemis_cta_section_subtitle'  => 'Diagnóstico rápido e sigiloso de HD, SSD, RAID, NAS e DVR. Fale agora com um especialista.',
-		'artemis_cta_sidebar_title'     => 'Precisa recuperar seus dados?',
-		'artemis_cta_sidebar_text'      => 'Laboratório próprio e atendimento emergencial. Chame no WhatsApp e receba o diagnóstico.',
-
-		// Rodapé / WhatsApp.
-		'artemis_whatsapp_url'          => $wa,
+		// Layout que acompanha a paleta.
 		'artemis_footer_show_back_top'  => 1,
 		'artemis_tagline_show'          => 0,
 	);

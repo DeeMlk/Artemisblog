@@ -1,11 +1,11 @@
 <?php
 /**
- * Setup mínimo que o miolo do blog precisa do lado do tema anfitrião.
+ * Setup mínimo que o miolo do blog precisa do lado do WordPress.
  *
- * Como o blog roda dentro do tema do site (que já cuida de <title>, menus, logo
- * do cabeçalho etc.), aqui só garantimos o suporte a imagem destacada e os
- * tamanhos de corte usados pelos cards/heros. Tudo idempotente: se o tema já
- * declarou, não faz mal repetir.
+ * O modo canvas já cuida de <title>, menu e logo por conta própria (ver
+ * templates/header.php), então aqui só resta o que depende do core: suporte a
+ * imagem destacada e os tamanhos de corte usados pelos cards/heros. Tudo
+ * idempotente — se o tema anfitrião já declarou o mesmo, não faz mal repetir.
  */
 
 if ( ! defined( 'ABSPATH' ) ) {

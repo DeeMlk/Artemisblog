@@ -1,0 +1,700 @@
+# Copyright (C) 2026 Artemis
+# This file is distributed under the GPL v2 or later.
+#
+# Gerado por tools/make-pot.php — não edite à mão.
+msgid ""
+msgstr ""
+"Project-Id-Version: Artemis Blog 1.4.0\n"
+"Report-Msgid-Bugs-To: https://artemis.com.br\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2026-07-30T23:57:28Z\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Domain: artemis-blog\n"
+
+#: inc/demo-seeder.php:215
+msgid "%1$d post(s) criado(s), %2$d já existiam (pulados)."
+msgstr ""
+
+#: inc/template-tags.php:57
+#: templates/single.php:52
+msgid "%d min de leitura"
+msgstr ""
+
+#: templates/search.php:27
+msgid "%d post encontrado."
+msgid_plural "%d posts encontrados."
+msgstr[0] ""
+msgstr[1] ""
+
+#: inc/admin-settings.php:430
+msgid "1 = só hero; 5 = hero + 4 cards laterais (recomendado)."
+msgstr ""
+
+#: inc/admin-settings.php:417
+msgid "Abre o link do CTA numa nova aba"
+msgstr ""
+
+#: inc/admin-settings.php:417
+msgid "Abrir em nova aba"
+msgstr ""
+
+#: templates/header.php:84
+msgid "Abrir menu"
+msgstr ""
+
+#: inc/admin-settings.php:439
+msgid "Aceita HTML básico. {year} = ano atual, {site} = nome do site. Vazio = © {year} {site}."
+msgstr ""
+
+#: inc/admin-settings.php:37
+#: inc/admin-settings.php:38
+msgid "Ajustes"
+msgstr ""
+
+#: inc/admin-settings.php:354
+msgid "Altura do logo no header (px)"
+msgstr ""
+
+#: inc/admin-settings.php:356
+msgid "Altura do logo no rodapé (px)"
+msgstr ""
+
+#: inc/template-tags.php:120
+#: inc/template-tags.php:185
+#: templates/blog-home.php:154
+msgid "Anterior"
+msgstr ""
+
+#: inc/admin-settings.php:353
+msgid "Aparece no cabeçalho do blog. Vazio = nome do site. Como o blog usa cabeçalho próprio, configure o logo aqui (ele não puxa o logo do tema do site)."
+msgstr ""
+
+#: inc/admin-settings.php:355
+msgid "Aparece no rodapé. Como o rodapé costuma ser escuro, use uma versão clara/branca do logo."
+msgstr ""
+
+#: inc/admin-settings.php:315
+msgid "Aplicar tema dark"
+msgstr ""
+
+#: templates/archive.php:20
+#: templates/archive.php:22
+msgid "Arquivo"
+msgstr ""
+
+#: inc/admin-settings.php:22
+#: inc/admin-settings.php:23
+#: inc/admin-settings.php:299
+msgid "Artemis Blog"
+msgstr ""
+
+#: inc/canvas.php:15
+msgid "Artemis Blog — Menu principal"
+msgstr ""
+
+#: inc/setup.php:37
+msgid "Artemis — Card (720×480)"
+msgstr ""
+
+#: inc/setup.php:36
+msgid "Artemis — Hero (1200×720)"
+msgstr ""
+
+#: inc/admin-settings.php:343
+msgid "Atenção: a página inicial do site está configurada para \"Seus posts mais recentes\". Para a página do blog funcionar como esperado, defina uma página estática como inicial em Configurações → Leitura."
+msgstr ""
+
+#: templates/author.php:22
+msgid "Autor"
+msgstr ""
+
+#: inc/admin-settings.php:371
+msgid "Bordas"
+msgstr ""
+
+#: inc/admin-settings.php:431
+msgid "Breadcrumbs"
+msgstr ""
+
+#: templates/search.php:17
+msgid "Busca"
+msgstr ""
+
+#: inc/template-tags.php:107
+msgid "Busca por \"%s\""
+msgstr ""
+
+#: templates/header.php:70
+#: templates/parts/searchform.php:12
+msgid "Buscar"
+msgstr ""
+
+#: templates/header.php:73
+#: templates/parts/searchform.php:11
+msgid "Buscar no blog…"
+msgstr ""
+
+#: templates/parts/searchform.php:10
+msgid "Buscar:"
+msgstr ""
+
+#: inc/style-importer.php:707
+msgid "CSS público da página inicial"
+msgstr ""
+
+#: inc/admin-settings.php:411
+msgid "CTA global"
+msgstr ""
+
+#: templates/archive.php:16
+msgid "Categoria"
+msgstr ""
+
+#: templates/parts/social-share.php:15
+msgid "Compartilhar no Facebook"
+msgstr ""
+
+#: templates/parts/social-share.php:20
+msgid "Compartilhar no LinkedIn"
+msgstr ""
+
+#: templates/parts/social-share.php:25
+msgid "Compartilhar no WhatsApp"
+msgstr ""
+
+#: templates/parts/social-share.php:30
+msgid "Compartilhar por Email"
+msgstr ""
+
+#: templates/parts/social-share.php:37
+msgid "Compartilhe este conteúdo"
+msgstr ""
+
+#: inc/demo-seeder.php:190
+#: inc/demo-seeder.php:191
+msgid "Conteúdo de exemplo"
+msgstr ""
+
+#: inc/demo-seeder.php:225
+msgid "Conteúdo de exemplo Artemis"
+msgstr ""
+
+#: inc/template-tags.php:183
+msgid "Conteúdos"
+msgstr ""
+
+#: templates/blog-home.php:91
+msgid "Conteúdos em %s"
+msgstr ""
+
+#: templates/blog-home.php:52
+msgid "Conteúdos em destaque"
+msgstr ""
+
+#: inc/admin-settings.php:361
+msgid "Cores da marca"
+msgstr ""
+
+#: inc/admin-settings.php:392
+msgid "Cores do CTA"
+msgstr ""
+
+#: inc/admin-settings.php:375
+msgid "Cores do cabeçalho"
+msgstr ""
+
+#: inc/admin-settings.php:384
+msgid "Cores do rodapé"
+msgstr ""
+
+#: inc/admin-settings.php:340
+msgid "Crie uma página vazia (ex.: \"Blog\") e selecione-a aqui. Ela passa a listar os posts com o layout Artemis. Equivale a definir a \"Página de posts\" em Configurações → Leitura."
+msgstr ""
+
+#: inc/admin-settings.php:440
+msgid "Créditos (direita)"
+msgstr ""
+
+#: templates/parts/cta-inline.php:12
+#: templates/parts/cta-sidebar.php:12
+msgid "Entre em contato e veja como podemos ajudar o seu negócio."
+msgstr ""
+
+#: templates/header.php:74
+msgid "Enviar busca"
+msgstr ""
+
+#: inc/demo-seeder.php:220
+msgid "Erros:"
+msgstr ""
+
+#: inc/admin-settings.php:412
+msgid "Esse link alimenta todos os botões de chamada do blog (home, post)."
+msgstr ""
+
+#: inc/style-importer.php:816
+msgid "Estilo do site importado!"
+msgstr ""
+
+#: inc/admin-settings.php:405
+msgid "Ex.: Inter, Nunito, Open Sans. Em branco = Montserrat."
+msgstr ""
+
+#: inc/admin-settings.php:415
+msgid "Ex.: https://seusite.com.br/contato"
+msgstr ""
+
+#: inc/admin-settings.php:438
+msgid "Ex.: https://wa.me/5511999999999 — se preencher, aparece o botão verde flutuante e no rodapé."
+msgstr ""
+
+#: templates/footer.php:23
+#: templates/footer.php:79
+msgid "Falar no WhatsApp"
+msgstr ""
+
+#: templates/parts/cta-section.php:13
+msgid "Fale com a gente e descubra como podemos te ajudar."
+msgstr ""
+
+#: templates/header.php:77
+msgid "Fechar busca"
+msgstr ""
+
+#: templates/footer.php:12
+msgid "Feito por Artemis"
+msgstr ""
+
+#: templates/blog-home.php:108
+msgid "Filtros de categoria"
+msgstr ""
+
+#: inc/admin-settings.php:405
+msgid "Fonte do corpo"
+msgstr ""
+
+#: inc/admin-settings.php:404
+msgid "Fonte dos títulos"
+msgstr ""
+
+#: inc/style-importer.php:818
+msgid "Fontes lidas: %s."
+msgstr ""
+
+#: inc/style-importer.php:825
+msgid "Fontes: %s."
+msgstr ""
+
+#: inc/style-importer.php:793
+msgid "Fundo"
+msgstr ""
+
+#: inc/admin-settings.php:370
+msgid "Fundo da área de conteúdo"
+msgstr ""
+
+#: inc/admin-settings.php:396
+msgid "Fundo do CTA no post"
+msgstr ""
+
+#: inc/admin-settings.php:380
+msgid "Fundo do botão CTA do cabeçalho"
+msgstr ""
+
+#: inc/admin-settings.php:378
+msgid "Fundo do cabeçalho"
+msgstr ""
+
+#: inc/admin-settings.php:387
+msgid "Fundo do rodapé (também é o fundo dos heros escuros)"
+msgstr ""
+
+#: inc/admin-settings.php:369
+msgid "Fundo dos cards"
+msgstr ""
+
+#: templates/parts/cta-inline.php:11
+#: templates/parts/cta-sidebar.php:11
+msgid "Gostou do conteúdo?"
+msgstr ""
+
+#: inc/admin-settings.php:420
+msgid "Imagem da seção CTA (home)"
+msgstr ""
+
+#: inc/admin-settings.php:423
+msgid "Imagem do CTA na sidebar"
+msgstr ""
+
+#: inc/demo-seeder.php:229
+msgid "Importa os posts de exemplo (com imagens) embutidos no plugin. Posts com o mesmo slug não são duplicados. Útil para testar o layout antes de publicar o conteúdo real."
+msgstr ""
+
+#: inc/demo-seeder.php:234
+msgid "Importar conteúdo de exemplo agora"
+msgstr ""
+
+#: inc/style-importer.php:764
+#: inc/style-importer.php:765
+msgid "Importar estilo do site"
+msgstr ""
+
+#: inc/template-tags.php:93
+msgid "Início"
+msgstr ""
+
+#: inc/admin-settings.php:427
+msgid "Layout"
+msgstr ""
+
+#: templates/parts/content-related.php:30
+msgid "Ler completo"
+msgstr ""
+
+#: templates/parts/sidebar.php:32
+msgid "Ler conteúdo"
+msgstr ""
+
+#: inc/admin-settings.php:353
+msgid "Logo do blog (header)"
+msgstr ""
+
+#: inc/admin-settings.php:355
+msgid "Logo do rodapé"
+msgstr ""
+
+#: inc/admin-settings.php:350
+msgid "Logo e cabeçalho"
+msgstr ""
+
+#: templates/header.php:61
+msgid "Menu principal"
+msgstr ""
+
+#: inc/admin-settings.php:357
+msgid "Mostrar a descrição do site ao lado do logo"
+msgstr ""
+
+#: inc/admin-settings.php:431
+msgid "Mostrar breadcrumbs nas páginas internas"
+msgstr ""
+
+#: inc/admin-settings.php:442
+msgid "Mostrar o botão \"voltar ao topo\" no rodapé"
+msgstr ""
+
+#: templates/blog-home.php:175
+#: templates/parts/content-none.php:10
+msgid "Nada por aqui ainda."
+msgstr ""
+
+#: templates/parts/content-none.php:15
+msgid "Nenhum conteúdo encontrado nesta seção."
+msgstr ""
+
+#: templates/blog-home.php:173
+msgid "Nenhum post em \"%s\" por enquanto."
+msgstr ""
+
+#: inc/admin-settings.php:404
+msgid "Nome exato no Google Fonts (ex.: Poppins). Em branco = Montserrat."
+msgstr ""
+
+#: inc/style-importer.php:782
+msgid "Não foi possível detectar a identidade visual do site (nenhuma cor de marca encontrada no Elementor, no tema ou no CSS da home). Configure as cores manualmente abaixo — ou verifique se a página inicial do site está acessível."
+msgstr ""
+
+#: inc/admin-settings.php:300
+msgid "O blog é renderizado em modo canvas, com cabeçalho e rodapé próprios (isolados do tema do site). Aqui você edita toda a identidade: cores de cabeçalho, miolo e rodapé, fontes, logos, CTA global e conteúdo do rodapé."
+msgstr ""
+
+#: inc/admin-settings.php:420
+msgid "Opcional. Aparece ao lado do texto na faixa de CTA da home. ~440×300px."
+msgstr ""
+
+#: inc/admin-settings.php:423
+msgid "Opcional. Aparece no topo do card. ~720×480px."
+msgstr ""
+
+#: inc/template-tags.php:127
+#: templates/blog-home.php:160
+msgid "Paginação"
+msgstr ""
+
+#: inc/admin-settings.php:407
+msgid "Pesos do corpo"
+msgstr ""
+
+#: inc/admin-settings.php:406
+msgid "Pesos dos títulos"
+msgstr ""
+
+#: inc/admin-settings.php:430
+msgid "Posts em destaque na home"
+msgstr ""
+
+#: inc/style-importer.php:790
+msgid "Primária"
+msgstr ""
+
+#: inc/admin-settings.php:364
+msgid "Primária (botões, links, destaques)"
+msgstr ""
+
+#: inc/admin-settings.php:365
+msgid "Primária (hover)"
+msgstr ""
+
+#: templates/parts/cta-section.php:12
+msgid "Pronto pra dar o próximo passo?"
+msgstr ""
+
+#: inc/admin-settings.php:303
+msgid "Pronto! Paleta dark aplicada. Ajuste o que quiser abaixo e clique em Salvar."
+msgstr ""
+
+#: inc/template-tags.php:121
+#: templates/blog-home.php:155
+msgid "Próxima"
+msgstr ""
+
+#: inc/template-tags.php:188
+msgid "Próximo"
+msgstr ""
+
+#: templates/author.php:43
+msgid "Publicações deste autor"
+msgstr ""
+
+#: templates/header.php:26
+msgid "Pular para o conteúdo"
+msgstr ""
+
+#: inc/admin-settings.php:327
+msgid "Página do blog"
+msgstr ""
+
+#: inc/admin-settings.php:330
+msgid "Página que exibe o blog"
+msgstr ""
+
+#: templates/single.php:78
+msgid "Páginas:"
+msgstr ""
+
+#: templates/parts/sidebar.php:26
+msgid "Relacionados"
+msgstr ""
+
+#: inc/admin-settings.php:278
+msgid "Remover"
+msgstr ""
+
+#: templates/search.php:19
+msgid "Resultados para \"%s\""
+msgstr ""
+
+#: inc/style-importer.php:820
+msgid "Revise abaixo e ajuste o que quiser."
+msgstr ""
+
+#: inc/admin-settings.php:435
+#: inc/style-importer.php:794
+msgid "Rodapé"
+msgstr ""
+
+#: inc/options.php:117
+msgid "Saiba mais"
+msgstr ""
+
+#: inc/admin-settings.php:274
+msgid "Selecionar imagem"
+msgstr ""
+
+#: inc/admin-settings.php:407
+msgid "Separados por ; (ex.: 400;500;600)"
+msgstr ""
+
+#: inc/admin-settings.php:406
+msgid "Separados por ; (ex.: 600;700)"
+msgstr ""
+
+#: templates/single.php:95
+msgid "Sidebar"
+msgstr ""
+
+#: templates/parts/content-none.php:13
+msgid "Sua busca não retornou resultados. Tente outro termo."
+msgstr ""
+
+#: inc/admin-settings.php:419
+msgid "Subtítulo da seção CTA (home)"
+msgstr ""
+
+#: templates/archive.php:18
+msgid "Tag"
+msgstr ""
+
+#: inc/admin-settings.php:357
+msgid "Tagline"
+msgstr ""
+
+#: templates/single.php:85
+msgid "Tags:"
+msgstr ""
+
+#: inc/admin-settings.php:314
+msgid "Tema dark pronto"
+msgstr ""
+
+#: templates/header.php:73
+msgid "Termo de busca"
+msgstr ""
+
+#: inc/style-importer.php:792
+msgid "Texto"
+msgstr ""
+
+#: inc/admin-settings.php:397
+#: inc/admin-settings.php:422
+msgid "Texto do CTA no post"
+msgstr ""
+
+#: inc/admin-settings.php:416
+msgid "Texto do botão"
+msgstr ""
+
+#: inc/admin-settings.php:379
+msgid "Texto do cabeçalho (título, menu)"
+msgstr ""
+
+#: inc/admin-settings.php:367
+msgid "Texto do corpo"
+msgstr ""
+
+#: inc/admin-settings.php:388
+msgid "Texto do rodapé"
+msgstr ""
+
+#: inc/admin-settings.php:439
+msgid "Texto do rodapé (esquerda)"
+msgstr ""
+
+#: inc/admin-settings.php:395
+msgid "Texto dos botões CTA"
+msgstr ""
+
+#: inc/admin-settings.php:368
+msgid "Texto secundário"
+msgstr ""
+
+#: inc/admin-settings.php:401
+msgid "Tipografia"
+msgstr ""
+
+#: templates/parts/author-box.php:21
+msgid "Todas as publicações"
+msgstr ""
+
+#: templates/blog-home.php:110
+msgid "Todos"
+msgstr ""
+
+#: inc/options.php:164
+msgid "Todos os direitos reservados."
+msgstr ""
+
+#: inc/admin-settings.php:418
+msgid "Título da seção CTA (home)"
+msgstr ""
+
+#: inc/admin-settings.php:421
+msgid "Título do CTA no post"
+msgstr ""
+
+#: inc/style-importer.php:791
+msgid "Títulos"
+msgstr ""
+
+#: inc/admin-settings.php:366
+msgid "Títulos (H1, H2, H3)"
+msgstr ""
+
+#: inc/admin-settings.php:415
+msgid "URL de destino"
+msgstr ""
+
+#: inc/admin-settings.php:441
+msgid "URL dos créditos (opcional)"
+msgstr ""
+
+#: templates/parts/content-card.php:34
+#: templates/parts/content-featured.php:41
+msgid "Ver mais"
+msgstr ""
+
+#: templates/blog-home.php:182
+msgid "Ver todos os conteúdos"
+msgstr ""
+
+#: inc/template-tags.php:92
+msgid "Você está em"
+msgstr ""
+
+#: inc/admin-settings.php:442
+#: templates/footer.php:55
+msgid "Voltar ao topo"
+msgstr ""
+
+#: templates/blog-home.php:179
+msgid "Volte em alguns dias ou explore outras categorias."
+msgstr ""
+
+#: inc/admin-settings.php:438
+msgid "WhatsApp (URL completa)"
+msgstr ""
+
+#: artemis-blog.php:43
+msgid "a versão antiga (pasta \"artemis-plugin\") foi desativada automaticamente para evitar conflito. Recarregue a página — você pode excluir a pasta antiga com segurança."
+msgstr ""
+
+#: inc/admin-settings.php:314
+msgid "aplica de uma vez uma paleta dark coerente. Você ajusta depois. Não mexe em textos, links, logos/imagens nem na página do blog."
+msgstr ""
+
+#: inc/style-importer.php:812
+msgid "corpo: %s"
+msgstr ""
+
+#: inc/style-importer.php:704
+msgid "estilos globais do tema (theme.json)"
+msgstr ""
+
+#: inc/style-importer.php:764
+msgid "lê a identidade visual deste site (paleta do Elementor, estilos globais do tema e CSS da página inicial) e preenche as cores e fontes do blog automaticamente. Não mexe em textos de CTA, logos nem na página do blog. Revise e ajuste abaixo depois de importar."
+msgstr ""
+
+#: inc/style-importer.php:701
+msgid "paleta global do Elementor"
+msgstr ""
+
+#: inc/template-tags.php:183
+msgid "relacionados"
+msgstr ""
+
+#: inc/style-importer.php:809
+msgid "títulos: %s"
+msgstr ""
+
+#: templates/blog-home.php:93
+msgid "Últimos conteúdos"
+msgstr ""
+
+#: inc/admin-settings.php:336
+msgid "— selecione uma página —"
+msgstr ""

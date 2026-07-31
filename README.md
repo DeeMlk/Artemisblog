@@ -24,7 +24,10 @@ As telas do blog (home de posts, post, arquivos, busca) são renderizadas em **m
 
 ## Instalação
 
-1. Copie a pasta `artemis-blog/` para `wp-content/plugins/`.
+1. Instale o plugin, de um dos dois jeitos:
+   - **Pelo painel:** **Plugins → Adicionar novo → Enviar plugin** e escolha o
+     `artemis-blog-<versão>.zip`; ou
+   - **Por FTP/SSH:** copie a pasta `artemis-blog/` para `wp-content/plugins/`.
 2. Ative **Artemis Blog** em **Plugins**.
 3. Crie uma página vazia (ex.: "Blog") e selecione-a em **Artemis Blog → Página do blog**
    (equivale a definir a *Página de posts* em **Configurações → Leitura**).
@@ -60,6 +63,7 @@ inc/
   demo-seeder.php         importação manual de conteúdo de exemplo
 templates/                blog-home, single, archive, author, search + parts/
 assets/                   css/main.css (escopado), js/main.js (miolo)
+languages/                arquivos .pot para tradução
 ```
 
 ## Licença
